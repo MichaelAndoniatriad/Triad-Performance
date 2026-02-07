@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TRIAD PERFORMANCE | Strategic Performance for the Spinningfields Professional</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            charcoal: '#1A1A1B',
+            bone: '#F5F3EF',
+            champagne: '#C9B896',
+            surgical: '#7BA3B8',
+          },
+          fontFamily: {
+            serif: ['Playfair Display', 'serif'],
+            sans: ['Inter', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; }
+    .font-serif { font-family: 'Playfair Display', serif; }
+    .header-blur { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); background-color: rgba(26, 26, 27, 0.85); }
+  </style>
+</head>
+<body class="bg-charcoal text-bone antialiased">
+  <!-- Navigation -->
+  <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-5 px-6 md:px-12">
+    <nav class="max-w-7xl mx-auto flex items-center justify-between">
+      <a href="#" class="font-serif font-semibold tracking-wide text-bone text-lg md:text-xl">TRIAD PERFORMANCE</a>
+      <a href="#apply" class="inline-flex items-center gap-2 px-5 py-2.5 border border-champagne/60 text-champagne text-sm font-medium hover:bg-champagne/10 transition-colors duration-200">
+        Apply Now
+      </a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <img
+      src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?w=1920&q=80"
+      alt="Spinningfields architecture"
+      class="absolute inset-0 w-full h-full object-cover opacity-40"
+    />
+    <div class="absolute inset-0 bg-charcoal/70"></div>
+    <div class="relative z-10 max-w-4xl mx-auto px-6 md:px-12 text-center pt-24 pb-16">
+      <h1 class="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-bone leading-tight tracking-tight mb-6">
+        STRATEGIC PERFORMANCE FOR THE SPINNINGFIELDS PROFESSIONAL
+      </h1>
+      <p class="text-bone/90 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light">
+        Precision coaching, metabolic optimization, and postural restoration at 18 Leftbank.
+      </p>
+      <a href="#apply" class="inline-flex items-center gap-2 px-8 py-4 bg-champagne/20 border border-champagne text-champagne font-medium hover:bg-champagne/30 transition-colors duration-200">
+        Request Consultation
+      </a>
+    </div>
+  </section>
+
+  <!-- The Methodology -->
+  <section id="methodology" class="py-24 md:py-32 px-6 md:px-12">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="font-serif text-2xl md:text-3xl text-bone text-center mb-4">The Methodology</h2>
+      <p class="text-bone/70 text-center max-w-xl mx-auto mb-16">Three pillars. One system.</p>
+      <div class="grid md:grid-cols-3 gap-8 md:gap-10">
+        <!-- Pillar 1 -->
+        <div class="group border border-bone/10 hover:border-champagne/30 transition-colors duration-300 p-8 md:p-10">
+          <div class="w-12 h-12 flex items-center justify-center border border-surgical/50 text-surgical mb-6">
+            <i data-lucide="activity" class="w-6 h-6"></i>
+          </div>
+          <h3 class="font-serif text-xl text-bone mb-3">Metabolic Optimization</h3>
+          <p class="text-bone/70 text-sm leading-relaxed">Data-driven body composition and fueling strategies built for high-output professionals who need to perform without compromise.</p>
+        </div>
+        <!-- Pillar 2 -->
+        <div class="group border border-bone/10 hover:border-champagne/30 transition-colors duration-300 p-8 md:p-10">
+          <div class="w-12 h-12 flex items-center justify-center border border-surgical/50 text-surgical mb-6">
+            <i data-lucide="align-center" class="w-6 h-6"></i>
+          </div>
+          <h3 class="font-serif text-xl text-bone mb-3">Postural Restoration</h3>
+          <p class="text-bone/70 text-sm leading-relaxed">Structural balance and movement quality for the desk-based professional. Address the cost of long hours and screen time.</p>
+        </div>
+        <!-- Pillar 3 -->
+        <div class="group border border-bone/10 hover:border-champagne/30 transition-colors duration-300 p-8 md:p-10">
+          <div class="w-12 h-12 flex items-center justify-center border border-surgical/50 text-surgical mb-6">
+            <i data-lucide="map" class="w-6 h-6"></i>
+          </div>
+          <h3 class="font-serif text-xl text-bone mb-3">The Executive Roadmap</h3>
+          <p class="text-bone/70 text-sm leading-relaxed">A 90-day plan built for 60-hour work weeks. Sustainable progress without adding friction to an already demanding schedule.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Michael - The Resident Specialist -->
+  <section id="about" class="py-24 md:py-32 px-6 md:px-12 bg-black/40">
+    <div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
+      <div class="flex-1 order-2 lg:order-1">
+        <span class="text-champagne/80 text-sm tracking-widest uppercase">The Resident Specialist</span>
+        <h2 class="font-serif text-3xl md:text-4xl text-bone mt-2 mb-6">Precision. Proximity. No friction.</h2>
+        <p class="text-bone/80 leading-relaxed max-w-xl">
+          As an 18 Leftbank resident, I provide an elite, friction-less experience for neighbors. Your coaching, metabolic and postural work happen where you already live and work—no commutes, no wasted time. Strategic performance tailored to the Spinningfields professional, delivered at 18 Leftbank.
+        </p>
+      </div>
+      <div class="flex-1 order-1 lg:order-2">
+        <img
+          src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&q=80"
+          alt="Professional gym environment"
+          class="w-full aspect-[4/3] object-cover border border-bone/10"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Lead Capture Form -->
+  <section id="apply" class="py-24 md:py-32 px-6 md:px-12">
+    <div class="max-w-xl mx-auto">
+      <h2 class="font-serif text-2xl md:text-3xl text-bone text-center mb-3">Apply for a Strategy Session</h2>
+      <p class="text-bone/60 text-center text-sm mb-12">A brief application. No commitment.</p>
+      <form class="space-y-6" action="#" method="post">
+        <div>
+          <label for="name" class="block text-bone/80 text-sm font-medium mb-2">Name</label>
+          <input type="text" id="name" name="name" required placeholder="Your name" class="w-full px-4 py-3 bg-charcoal border border-bone/20 text-bone placeholder-bone/40 focus:outline-none focus:border-champagne/50 transition-colors" />
+        </div>
+        <div>
+          <label for="occupation" class="block text-bone/80 text-sm font-medium mb-2">Occupation</label>
+          <input type="text" id="occupation" name="occupation" required placeholder="Role or industry" class="w-full px-4 py-3 bg-charcoal border border-bone/20 text-bone placeholder-bone/40 focus:outline-none focus:border-champagne/50 transition-colors" />
+        </div>
+        <div>
+          <label for="goal" class="block text-bone/80 text-sm font-medium mb-2">Primary Goal</label>
+          <input type="text" id="goal" name="goal" required placeholder="What you want to achieve" class="w-full px-4 py-3 bg-charcoal border border-bone/20 text-bone placeholder-bone/40 focus:outline-none focus:border-champagne/50 transition-colors" />
+        </div>
+        <button type="submit" class="w-full py-4 border border-champagne text-champagne font-medium hover:bg-champagne/10 transition-colors duration-200">
+          Submit Application
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-8 px-6 md:px-12 border-t border-bone/10">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <span class="font-serif text-bone/80 text-sm">TRIAD PERFORMANCE</span>
+      <span class="text-bone/50 text-sm">18 Leftbank · Spinningfields</span>
+    </div>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+    const header = document.getElementById('header');
+    let lastScroll = 0;
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      if (scrollY > 60) {
+        header.classList.add('header-blur');
+      } else {
+        header.classList.remove('header-blur');
+      }
+      lastScroll = scrollY;
+    });
+  </script>
+</body>
+</html>
