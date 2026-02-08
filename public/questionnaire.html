@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apply for a complimentary session | TRIAD PERFORMANCE</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            charcoal: '#1A1A1B',
+            bone: '#F5F3EF',
+            champagne: '#C9B896',
+          },
+          fontFamily: {
+            serif: ['Playfair Display', 'serif'],
+            sans: ['Inter', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .font-serif { font-family: 'Playfair Display', serif; }
+  </style>
+</head>
+<body class="bg-charcoal text-bone antialiased min-h-screen">
+  <header class="border-b border-bone/10 py-5 px-6 md:px-12">
+    <div class="max-w-2xl mx-auto flex items-center justify-between">
+      <a href="index.html" class="font-serif font-semibold tracking-wide text-bone text-lg">TRIAD PERFORMANCE</a>
+      <a href="index.html" class="text-bone/70 text-sm hover:text-bone transition-colors">Back</a>
+    </div>
+  </header>
+
+  <main class="py-12 md:py-16 px-6 md:px-12">
+    <div class="max-w-xl mx-auto">
+      <p class="text-champagne text-xs font-semibold tracking-[0.25em] uppercase mb-2">Complimentary session</p>
+      <h1 class="font-serif text-2xl md:text-3xl text-bone mb-2">Apply for a complimentary session</h1>
+      <p class="text-bone/60 text-sm mb-10">A few questions so we can tailor your complimentary session.</p>
+
+      <form class="space-y-6" action="#" method="post">
+        <div>
+          <label for="fullname" class="block text-bone/90 text-sm font-medium mb-2">Full Name</label>
+          <input type="text" id="fullname" name="fullname" required placeholder="Your full name" class="w-full px-4 py-3 bg-charcoal border border-bone/20 text-bone placeholder-bone/40 focus:outline-none focus:border-champagne/50 transition-colors rounded-sm" />
+        </div>
+
+        <div>
+          <label for="occupation" class="block text-bone/90 text-sm font-medium mb-2">Occupation / Industry</label>
+          <p class="text-bone/50 text-xs mb-2">Crucial for Spinningfields context—helps us know if you’re a desk-bound lawyer or a mobile exec.</p>
+          <input type="text" id="occupation" name="occupation" required placeholder="e.g. Corporate lawyer, Finance, Consulting" class="w-full px-4 py-3 bg-charcoal border border-bone/20 text-bone placeholder-bone/40 focus:outline-none focus:border-champagne/50 transition-colors rounded-sm" />
+        </div>
+
+        <div>
+          <label for="objective" class="block text-bone/90 text-sm font-medium mb-2">Primary Objective</label>
+          <select id="objective" name="objective" required class="w-full px-4 py-3 bg-charcoal border border-bone/20 text-bone focus:outline-none focus:border-champagne/50 transition-colors rounded-sm appearance-none cursor-pointer" style="background-image: url('data:image/svg+xml;charset=UTF-8,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 fill=%27none%27 viewBox=%270 0 24 24%27 stroke=%27%23C9B896%27%3e%3cpath stroke-linecap=%27round%27 stroke-linejoin=%27round%27 stroke-width=%272%27 d=%27M19 9l-7 7-7-7%27/%3e%3c/svg%3e'); background-repeat: no-repeat; background-position: right 0.75rem center; background-size: 1.25rem; padding-right: 2.5rem;">
+            <option value="" class="bg-charcoal text-bone">Select one</option>
+            <option value="body-composition" class="bg-charcoal text-bone">Body Composition / Aesthetics</option>
+            <option value="postural" class="bg-charcoal text-bone">Postural Correction / Pain</option>
+            <option value="athletic" class="bg-charcoal text-bone">Athletic Performance</option>
+            <option value="all" class="bg-charcoal text-bone">All of the Above</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="preference" class="block text-bone/90 text-sm font-medium mb-2">Coaching Preference</label>
+          <select id="preference" name="preference" required class="w-full px-4 py-3 bg-charcoal border border-bone/20 text-bone focus:outline-none focus:border-champagne/50 transition-colors rounded-sm appearance-none cursor-pointer" style="background-image: url('data:image/svg+xml;charset=UTF-8,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 fill=%27none%27 viewBox=%270 0 24 24%27 stroke=%27%23C9B896%27%3e%3cpath stroke-linecap=%27round%27 stroke-linejoin=%27round%27 stroke-width=%272%27 d=%27M19 9l-7 7-7-7%27/%3e%3c/svg%3e'); background-repeat: no-repeat; background-position: right 0.75rem center; background-size: 1.25rem; padding-right: 2.5rem;">
+            <option value="" class="bg-charcoal text-bone">Select one</option>
+            <option value="in-person" class="bg-charcoal text-bone">In-Person at 18 Leftbank</option>
+            <option value="online" class="bg-charcoal text-bone">Online</option>
+            <option value="hybrid" class="bg-charcoal text-bone">Hybrid</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="challenge" class="block text-bone/90 text-sm font-medium mb-2">Current Challenge</label>
+          <textarea id="challenge" name="challenge" rows="4" required placeholder="What is the #1 thing holding your performance back right now?" class="w-full px-4 py-3 bg-charcoal border border-bone/20 text-bone placeholder-bone/40 focus:outline-none focus:border-champagne/50 transition-colors rounded-sm resize-y min-h-[100px]"></textarea>
+        </div>
+
+        <button type="submit" class="w-full py-4 border border-champagne text-champagne font-medium hover:bg-champagne/10 transition-colors duration-200 rounded-sm">
+          Submit
+        </button>
+      </form>
+    </div>
+  </main>
+
+  <footer class="py-6 px-6 md:px-12 border-t border-bone/10 mt-auto">
+    <div class="max-w-2xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <span class="font-serif text-bone/80 text-sm">TRIAD PERFORMANCE</span>
+      <span class="text-bone/50 text-sm">PureGym Spinningfields</span>
+    </div>
+  </footer>
+</body>
+</html>
