@@ -1,4 +1,4 @@
 # Netlify config for TRIAD PERFORMANCE (static site)
 [build]
   publish = "public"
-  # No build step — we serve the contents of public/ as the site root
+  command = "npm run build"

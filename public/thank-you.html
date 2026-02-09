@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thank you | TRIAD PERFORMANCE</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            charcoal: '#1A1A1B',
+            bone: '#F5F3EF',
+            champagne: '#C9B896',
+          },
+          fontFamily: {
+            serif: ['Playfair Display', 'serif'],
+            sans: ['Inter', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .font-serif { font-family: 'Playfair Display', serif; }
+  </style>
+</head>
+<body class="bg-charcoal text-bone antialiased min-h-screen flex flex-col">
+  <header class="border-b border-bone/10 py-5 px-6 md:px-12">
+    <div class="max-w-3xl mx-auto flex items-center justify-between">
+      <a href="index.html" class="flex items-center">
+        <img src="assets/logo.png" alt="TRIAD PERFORMANCE" class="h-[4.55rem] w-auto object-contain" />
+      </a>
+      <a href="index.html" class="text-bone/70 text-sm hover:text-bone transition-colors">Back to main</a>
+    </div>
+  </header>
+
+  <main class="flex-1 py-16 px-6 md:px-12">
+    <div class="max-w-3xl mx-auto">
+      <p class="text-champagne text-xs font-semibold tracking-[0.25em] uppercase mb-3">Application received</p>
+      <h1 class="font-serif text-3xl md:text-4xl text-bone mb-4">Thank you.</h1>
+      <p class="text-bone/70 text-base md:text-lg max-w-2xl">
+        Your complimentary session request is confirmed. We will review your details and
+        reach out shortly with the next steps.
+      </p>
+      <div class="mt-10">
+        <a href="index.html" class="inline-flex items-center justify-center gap-2 border border-champagne text-champagne px-6 py-3 rounded-sm hover:bg-champagne/10 transition-colors">
+          Back to main page
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="py-6 px-6 md:px-12 border-t border-bone/10">
+    <div class="max-w-3xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <a href="index.html" class="flex items-center">
+        <img src="assets/logo.png" alt="TRIAD PERFORMANCE" class="h-[3.25rem] w-auto object-contain opacity-90" />
+      </a>
+      <span class="text-bone/50 text-sm">PureGym Spinningfields</span>
+    </div>
+  </footer>
+</body>
+</html>

@@ -33,7 +33,9 @@
 <body class="bg-charcoal text-bone antialiased min-h-screen">
   <header class="border-b border-bone/10 py-5 px-6 md:px-12">
     <div class="max-w-2xl mx-auto flex items-center justify-between">
-      <a href="index.html" class="font-serif font-semibold tracking-wide text-bone text-lg">TRIAD PERFORMANCE</a>
+      <a href="index.html" class="flex items-center">
+        <img src="assets/logo.png" alt="TRIAD PERFORMANCE" class="h-[4.55rem] w-auto object-contain" />
+      </a>
       <a href="index.html" class="text-bone/70 text-sm hover:text-bone transition-colors">Back</a>
     </div>
   </header>
@@ -44,15 +46,20 @@
       <h1 class="font-serif text-2xl md:text-3xl text-bone mb-2">Apply for a complimentary session</h1>
       <p class="text-bone/60 text-sm mb-10">A few questions so we can tailor your complimentary session.</p>
 
-      <form class="space-y-6" action="#" method="post">
+      <form id="consultation-form" class="space-y-6" action="#" method="post">
         <div>
           <label for="fullname" class="block text-bone/90 text-sm font-medium mb-2">Full Name</label>
           <input type="text" id="fullname" name="fullname" required placeholder="Your full name" class="w-full px-4 py-3 bg-charcoal border border-bone/20 text-bone placeholder-bone/40 focus:outline-none focus:border-champagne/50 transition-colors rounded-sm" />
         </div>
 
         <div>
+          <label for="email" class="block text-bone/90 text-sm font-medium mb-2">Email</label>
+          <input type="email" id="email" name="email" required placeholder="you@company.com" class="w-full px-4 py-3 bg-charcoal border border-bone/20 text-bone placeholder-bone/40 focus:outline-none focus:border-champagne/50 transition-colors rounded-sm" />
+        </div>
+
+        <div>
           <label for="occupation" class="block text-bone/90 text-sm font-medium mb-2">Occupation / Industry</label>
-          <p class="text-bone/50 text-xs mb-2">Crucial for Spinningfields context—helps us know if you’re a desk-bound lawyer or a mobile exec.</p>
+          <p class="text-bone/50 text-xs mb-2">Crucial for Spinningfields context—helps us know if you're a desk-bound lawyer or a mobile exec.</p>
           <input type="text" id="occupation" name="occupation" required placeholder="e.g. Corporate lawyer, Finance, Consulting" class="w-full px-4 py-3 bg-charcoal border border-bone/20 text-bone placeholder-bone/40 focus:outline-none focus:border-champagne/50 transition-colors rounded-sm" />
         </div>
 
@@ -71,9 +78,8 @@
           <label for="preference" class="block text-bone/90 text-sm font-medium mb-2">Coaching Preference</label>
           <select id="preference" name="preference" required class="w-full px-4 py-3 bg-charcoal border border-bone/20 text-bone focus:outline-none focus:border-champagne/50 transition-colors rounded-sm appearance-none cursor-pointer" style="background-image: url('data:image/svg+xml;charset=UTF-8,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 fill=%27none%27 viewBox=%270 0 24 24%27 stroke=%27%23C9B896%27%3e%3cpath stroke-linecap=%27round%27 stroke-linejoin=%27round%27 stroke-width=%272%27 d=%27M19 9l-7 7-7-7%27/%3e%3c/svg%3e'); background-repeat: no-repeat; background-position: right 0.75rem center; background-size: 1.25rem; padding-right: 2.5rem;">
             <option value="" class="bg-charcoal text-bone">Select one</option>
-            <option value="in-person" class="bg-charcoal text-bone">In-Person at 18 Leftbank</option>
             <option value="online" class="bg-charcoal text-bone">Online</option>
-            <option value="hybrid" class="bg-charcoal text-bone">Hybrid</option>
+            <option value="in-person" class="bg-charcoal text-bone">In-person</option>
           </select>
         </div>
 
@@ -82,7 +88,8 @@
           <textarea id="challenge" name="challenge" rows="4" required placeholder="What is the #1 thing holding your performance back right now?" class="w-full px-4 py-3 bg-charcoal border border-bone/20 text-bone placeholder-bone/40 focus:outline-none focus:border-champagne/50 transition-colors rounded-sm resize-y min-h-[100px]"></textarea>
         </div>
 
-        <button type="submit" class="w-full py-4 border border-champagne text-champagne font-medium hover:bg-champagne/10 transition-colors duration-200 rounded-sm">
+        <div id="form-message" class="hidden text-sm"></div>
+        <button type="submit" id="submit-btn" class="w-full py-4 border border-champagne text-champagne font-medium hover:bg-champagne/10 transition-colors duration-200 rounded-sm">
           Submit
         </button>
       </form>
@@ -91,9 +98,65 @@
 
   <footer class="py-6 px-6 md:px-12 border-t border-bone/10 mt-auto">
     <div class="max-w-2xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-      <span class="font-serif text-bone/80 text-sm">TRIAD PERFORMANCE</span>
+      <a href="index.html" class="flex items-center">
+        <img src="assets/logo.png" alt="TRIAD PERFORMANCE" class="h-[3.25rem] w-auto object-contain opacity-90" />
+      </a>
       <span class="text-bone/50 text-sm">PureGym Spinningfields</span>
     </div>
   </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    // Injected at build from .env – do not commit real values
+    const SUPABASE_URL = '__SUPABASE_URL__';
+    const SUPABASE_ANON_KEY = '__SUPABASE_ANON_KEY__';
+
+    const form = document.getElementById('consultation-form');
+    const formMessage = document.getElementById('form-message');
+    const submitBtn = document.getElementById('submit-btn');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (!SUPABASE_URL || !SUPABASE_ANON_KEY) {
+        showMessage('Supabase is not configured. Run npm run build and add SUPABASE_URL and SUPABASE_ANON_KEY to .env', true);
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Submitting…';
+      formMessage.classList.add('hidden');
+
+      const payload = {
+        fullname: form.fullname.value.trim(),
+        email: form.email.value.trim(),
+        occupation: form.occupation.value.trim(),
+        objective: form.objective.value,
+        preference: form.preference.value,
+        challenge: form.challenge.value.trim(),
+      };
+
+      try {
+        const { createClient } = supabase;
+        const supabaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+        const { error } = await supabaseClient.from('consultation_requests').insert([payload]);
+
+        if (error) throw error;
+        form.reset();
+        window.location.href = 'thank-you.html';
+      } catch (err) {
+        console.error(err);
+        showMessage(err.message || 'Something went wrong. Please try again.', true);
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Submit';
+      }
+    });
+
+    function showMessage(text, isError) {
+      formMessage.textContent = text;
+      formMessage.className = 'text-sm ' + (isError ? 'text-red-400' : 'text-champagne');
+      formMessage.classList.remove('hidden');
+    }
+  </script>
 </body>
 </html>

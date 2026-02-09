@@ -36,10 +36,13 @@
 </head>
 <body class="bg-charcoal text-bone antialiased">
   <!-- Navigation -->
-  <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-5 px-6 md:px-12">
-    <nav class="max-w-7xl mx-auto flex items-center justify-between">
-      <a href="#" class="font-serif font-semibold tracking-wide text-bone text-lg md:text-xl">TRIAD PERFORMANCE</a>
-      <a href="questionnaire.html" class="inline-flex items-center gap-2 px-5 py-2.5 border border-champagne/60 text-champagne text-sm font-medium hover:bg-champagne/10 transition-colors duration-200">
+  <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4 px-6 md:px-12">
+    <nav class="max-w-7xl mx-auto relative flex items-center justify-between min-h-[3rem]">
+      <a href="#" class="font-serif font-semibold tracking-wide text-bone text-lg md:text-xl z-10">TRIAD PERFORMANCE</a>
+      <a href="#" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center">
+        <img src="assets/logo.png" alt="" class="h-[5.2rem] md:h-[6.5rem] w-auto object-contain" />
+      </a>
+      <a href="questionnaire.html" class="inline-flex items-center gap-2 px-5 py-2.5 border border-champagne/60 text-champagne text-sm font-medium hover:bg-champagne/10 transition-colors duration-200 z-10">
         Apply for a complimentary session
       </a>
     </nav>
@@ -60,7 +63,7 @@
         THE STANDARD FOR SPINNINGFIELDS PERFORMANCE
       </h1>
       <p class="text-bone/90 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light">
-        Bespoke coaching for the high-level professionals. Master your movement, resolve postural imbalances, and build an elite physique that matches your ambition.
+        Bespoke coaching for the high-level professional. Master your movement, resolve postural imbalances, and build an elite physique that matches your ambition.
       </p>
       <a href="questionnaire.html" class="inline-flex items-center gap-2 px-8 py-4 bg-champagne/20 border border-champagne text-champagne font-medium hover:bg-champagne/30 transition-colors duration-200">
         Apply for a complimentary session
@@ -102,22 +105,28 @@
     </div>
   </section>
 
-  <!-- About Michael - The Resident Specialist -->
-  <section id="about" class="py-24 md:py-32 px-6 md:px-12 bg-black/40">
-    <div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
-      <div class="flex-1 order-2 lg:order-1">
-        <span class="text-champagne/80 text-sm tracking-widest uppercase">The Resident Specialist</span>
-        <h2 class="font-serif text-3xl md:text-4xl text-bone mt-2 mb-6">Precision. Proximity. No friction.</h2>
-        <p class="text-bone/80 leading-relaxed max-w-xl">
-          I train at PureGym Spinningfields. You get the same place, no extra commute, and coaching that fits around your schedule. Built for Spinningfields professionals who want results without the fuss.
-        </p>
-      </div>
-      <div class="flex-1 order-1 lg:order-2">
-        <img
-          src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&q=80"
-          alt="Professional gym environment"
-          class="w-full aspect-[4/3] object-cover border border-bone/10"
-        />
+  <!-- Specialities -->
+  <section id="specialities" class="py-24 md:py-32 px-6 md:px-12 bg-black/40">
+    <div class="max-w-7xl mx-auto">
+      <p class="text-champagne text-xs font-semibold tracking-[0.25em] uppercase text-center mb-3">Specialities</p>
+      <h2 class="font-serif text-2xl md:text-3xl text-bone text-center mb-16">What we work on</h2>
+      <div class="grid md:grid-cols-2 gap-8 md:gap-10">
+        <div class="border border-champagne/30 p-8 md:p-10">
+          <h3 class="font-serif text-xl text-champagne mb-2">Strength & Conditioning</h3>
+          <p class="text-bone/80 text-sm leading-relaxed">Building the Engine. Elite athletic principles applied to the professional lifestyle.</p>
+        </div>
+        <div class="border border-champagne/30 p-8 md:p-10">
+          <h3 class="font-serif text-xl text-champagne mb-2">Cognitive Performance</h3>
+          <p class="text-bone/80 text-sm leading-relaxed">The Executive Edge. Optimizing neuro-efficiency through specific movement protocols, sleep hygiene, and physiological stress management to ensure peak mental clarity.</p>
+        </div>
+        <div class="border border-champagne/30 p-8 md:p-10">
+          <h3 class="font-serif text-xl text-champagne mb-2">Nutrition Psychology</h3>
+          <p class="text-bone/80 text-sm leading-relaxed">Behavioral Fueling. Moving beyond the plate to master the stressors and habits of a high-pressure career.</p>
+        </div>
+        <div class="border border-champagne/30 p-8 md:p-10">
+          <h3 class="font-serif text-xl text-champagne mb-2">Sports Specific (Contact & Impact)</h3>
+          <p class="text-bone/80 text-sm leading-relaxed">The Competitive Athlete. Precision programming for rugby, combat sports, and field athletics to maximize power and mitigate injury.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -125,7 +134,9 @@
   <!-- Footer -->
   <footer class="py-8 px-6 md:px-12 border-t border-bone/10">
     <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-      <span class="font-serif text-bone/80 text-sm">TRIAD PERFORMANCE</span>
+      <a href="#" class="flex items-center">
+        <img src="assets/logo.png" alt="TRIAD PERFORMANCE" class="h-[3.9rem] w-auto object-contain opacity-90" />
+      </a>
       <span class="text-champagne text-sm">PureGym Spinningfields</span>
     </div>
   </footer>
