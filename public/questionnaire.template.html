@@ -58,8 +58,12 @@
         </div>
 
         <div>
+          <label for="reference_code" class="block text-bone/90 text-sm font-medium mb-2">Reference code (optional)</label>
+          <input type="text" id="reference_code" name="reference_code" placeholder="e.g. TRD-2026" class="w-full px-4 py-3 bg-charcoal border border-bone/20 text-bone placeholder-bone/40 focus:outline-none focus:border-champagne/50 transition-colors rounded-sm" />
+        </div>
+
+        <div>
           <label for="occupation" class="block text-bone/90 text-sm font-medium mb-2">Occupation / Industry</label>
-          <p class="text-bone/50 text-xs mb-2">Crucial for Spinningfields context—helps us know if you're a desk-bound lawyer or a mobile exec.</p>
           <input type="text" id="occupation" name="occupation" required placeholder="e.g. Corporate lawyer, Finance, Consulting" class="w-full px-4 py-3 bg-charcoal border border-bone/20 text-bone placeholder-bone/40 focus:outline-none focus:border-champagne/50 transition-colors rounded-sm" />
         </div>
 
@@ -129,6 +133,7 @@
       const payload = {
         fullname: form.fullname.value.trim(),
         email: form.email.value.trim(),
+        reference_code: form.reference_code.value.trim(),
         occupation: form.occupation.value.trim(),
         objective: form.objective.value,
         preference: form.preference.value,

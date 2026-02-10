@@ -5,6 +5,7 @@ create table if not exists consultation_requests (
   id uuid primary key default gen_random_uuid(),
   fullname text not null,
   email text not null,
+  reference_code text,
   occupation text not null,
   objective text not null,
   preference text not null,
