@@ -65,9 +65,9 @@ git commit -m "Stop tracking questionnaire.html; use build from .env"
 ```bash
 supabase secrets set \
   RESEND_API_KEY=your_resend_key \
-  NOTIFY_EMAIL=tr1ad.mcr@gmail.com \
+  NOTIFY_EMAIL=contact@triad.fitness \
   FROM_EMAIL="noreply@resend.dev" \
-  REPLY_TO_EMAIL="tr1ad.mcr@gmail.com"
+  REPLY_TO_EMAIL="contact@triad.fitness"
 ```
 
 3. Deploy the function:
