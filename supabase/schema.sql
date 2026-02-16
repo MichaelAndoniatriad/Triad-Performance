@@ -32,3 +32,31 @@ create policy "Allow authenticated read"
 -- Optional: allow service role full access (for backend/admin)
 -- create policy "Service role all"
 --   on consultation_requests for all to service_role using (true) with check (true);
+
+-- Creates the table for training enquiries
+create table if not exists training_enquiries (
+  id uuid primary key default gen_random_uuid(),
+  fullname text not null,
+  mobile text not null,
+  email text not null,
+  age integer not null,
+  coaching_preference text not null,
+  pt_gender text not null,
+  goal text not null,
+  created_at timestamptz default now()
+);
+
+-- Allow anonymous inserts and restrict reads to authenticated users
+alter table training_enquiries enable row level security;
+
+create policy "Allow anonymous insert (training enquiries)"
+  on training_enquiries
+  for insert
+  to anon
+  with check (true);
+
+create policy "Allow authenticated read (training enquiries)"
+  on training_enquiries
+  for select
+  to authenticated
+  using (true);

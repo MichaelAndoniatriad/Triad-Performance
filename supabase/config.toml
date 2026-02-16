@@ -1,0 +1,5 @@
+[functions.send-consultation-notification]
+verify_jwt = false
+
+[functions.send-training-enquiry-notification]
+verify_jwt = false

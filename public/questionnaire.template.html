@@ -54,7 +54,7 @@
       <p class="text-bone/70 text-sm mb-4">Complimentary sessions are held at PureGym Spinningfields.</p>
       <p class="text-bone/60 text-sm mb-10">A few questions so we can tailor your complimentary session.</p>
 
-      <form id="consultation-form" class="space-y-6" action="#" method="post">
+      <form id="consultation-form" class="space-y-6" onsubmit="return false;">
         <div>
           <label for="fullname" class="block text-bone/90 text-sm font-medium mb-2">Full Name</label>
           <input type="text" id="fullname" name="fullname" required placeholder="Your full name" class="w-full px-4 py-3 bg-charcoal border border-bone/20 text-bone placeholder-bone/40 focus:outline-none focus:border-champagne/50 transition-colors rounded-sm" />
@@ -113,6 +113,13 @@
     // Injected at build from .env – do not commit real values
     const SUPABASE_URL = '__SUPABASE_URL__';
     const SUPABASE_ANON_KEY = '__SUPABASE_ANON_KEY__';
+    const PLACEHOLDER_URL = '__SUPABASE_' + 'URL__';
+    const PLACEHOLDER_KEY = '__SUPABASE_' + 'ANON_KEY__';
+    const isSupabaseConfigured =
+      SUPABASE_URL &&
+      SUPABASE_ANON_KEY &&
+      SUPABASE_URL !== PLACEHOLDER_URL &&
+      SUPABASE_ANON_KEY !== PLACEHOLDER_KEY;
 
     const form = document.getElementById('consultation-form');
     const formMessage = document.getElementById('form-message');
@@ -120,7 +127,7 @@
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      if (!SUPABASE_URL || !SUPABASE_ANON_KEY) {
+      if (!isSupabaseConfigured) {
         showMessage('Supabase is not configured. Run npm run build and add SUPABASE_URL and SUPABASE_ANON_KEY to .env', true);
         return;
       }

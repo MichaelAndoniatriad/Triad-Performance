@@ -1,3 +1,7 @@
 .env
 public/questionnaire.html
+public/enquire.html
 supabase/.temp
+
+# Local Netlify folder
+.netlify

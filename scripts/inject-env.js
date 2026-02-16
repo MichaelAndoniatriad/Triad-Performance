@@ -29,10 +29,10 @@ if (fs.existsSync(envPath)) {
   });
 }
 
-const templatePath = path.join(__dirname, '..', 'public', 'questionnaire.template.html');
-const outputPath = path.join(__dirname, '..', 'public', 'questionnaire.html');
-
-let html = fs.readFileSync(templatePath, 'utf8');
+const questionnaireTemplatePath = path.join(__dirname, '..', 'public', 'questionnaire.template.html');
+const questionnaireOutputPath = path.join(__dirname, '..', 'public', 'questionnaire.html');
+const enquireTemplatePath = path.join(__dirname, '..', 'public', 'enquire.template.html');
+const enquireOutputPath = path.join(__dirname, '..', 'public', 'enquire.html');
 // Prefer SUPABASE_URL / SUPABASE_ANON_KEY; allow VITE_ variants
 const url = (process.env.SUPABASE_URL || process.env.VITE_SUPABASE_URL || '').trim();
 const key = (process.env.SUPABASE_ANON_KEY || process.env.VITE_SUPABASE_ANON_KEY || '').trim();
@@ -53,8 +53,14 @@ if (!url || !key) {
 function escapeForJsString(str) {
   return str.replace(/\\/g, '\\\\').replace(/'/g, "\\'");
 }
-html = html.replace(/__SUPABASE_URL__/g, escapeForJsString(url));
-html = html.replace(/__SUPABASE_ANON_KEY__/g, escapeForJsString(key));
 
-fs.writeFileSync(outputPath, html);
-console.log('Built public/questionnaire.html with Supabase config from .env');
+function buildTemplate(templatePath, outputPath, label) {
+  let html = fs.readFileSync(templatePath, 'utf8');
+  html = html.replace(/__SUPABASE_URL__/g, escapeForJsString(url));
+  html = html.replace(/__SUPABASE_ANON_KEY__/g, escapeForJsString(key));
+  fs.writeFileSync(outputPath, html);
+  console.log(`Built ${label} with Supabase config from .env`);
+}
+
+buildTemplate(questionnaireTemplatePath, questionnaireOutputPath, 'public/questionnaire.html');
+buildTemplate(enquireTemplatePath, enquireOutputPath, 'public/enquire.html');

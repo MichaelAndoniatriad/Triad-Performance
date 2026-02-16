@@ -10,7 +10,7 @@
 1. In the Supabase dashboard, open **SQL Editor**.
 2. Click **New query**.
 3. Copy the contents of `supabase/schema.sql` and paste into the editor.
-4. Click **Run**. You should see “Success” and the table `consultation_requests` will exist.
+4. Click **Run**. You should see “Success” and the tables `consultation_requests` and `training_enquiries` will exist.
 
 ## 3. Get your API keys
 
@@ -29,33 +29,33 @@
 
 3. Save the file. **.env** is gitignored so your keys are never committed.
 
-## 5. Build the questionnaire
+## 5. Build the forms
 
-The live questionnaire is generated from the template and your .env:
+The live questionnaire and enquiry page are generated from templates and your .env:
 
 ```bash
 npm run build
 ```
 
-This creates **public/questionnaire.html** with your Supabase config. That file is also gitignored so it is not committed.
+This creates **public/questionnaire.html** and **public/enquire.html** with your Supabase config. These files are gitignored so they are not committed.
 
-- **Locally:** Run `npm run build` whenever you change .env or the template. Use the generated **public/questionnaire.html** when testing.
+- **Locally:** Run `npm run build` whenever you change .env or a template. Use the generated **public/questionnaire.html** and **public/enquire.html** when testing.
 - **Netlify:** In Site settings → Environment variables, add **SUPABASE_URL** and **SUPABASE_ANON_KEY**. Set the build command to **npm run build** and keep the publish directory **public**. Each deploy will build the questionnaire with the env vars.
 
 ## 6. (Optional) Stop tracking the built file
 
-If **public/questionnaire.html** was previously committed (e.g. with keys in it), remove it from Git and rely on the build:
+If **public/questionnaire.html** or **public/enquire.html** were previously committed (e.g. with keys in them), remove them from Git and rely on the build:
 
 ```bash
-git rm --cached public/questionnaire.html
-git commit -m "Stop tracking questionnaire.html; use build from .env"
+git rm --cached public/questionnaire.html public/enquire.html
+git commit -m "Stop tracking built forms; use build from .env"
 ```
 
 ## 7. Test
 
-1. Run `npm run build`, then open the questionnaire page (e.g. open **public/index.html** and click through to the form, or open **public/questionnaire.html** directly).
-2. Submit the form.
-3. In Supabase go to **Table Editor** → **consultation_requests** and confirm the new row.
+1. Run `npm run build`, then open the questionnaire or enquiry page (e.g. open **public/index.html** and click through, or open **public/questionnaire.html** / **public/enquire.html** directly).
+2. Submit a form.
+3. In Supabase go to **Table Editor** → **consultation_requests** or **training_enquiries** and confirm the new row.
 
 ## 8. Email notifications (Resend, free tier)
 
@@ -91,6 +91,20 @@ Then redeploy the function if you change this file.
 - `<anon-key>`: your anon public key
 
 6. Submit the form and verify the email arrives.
+
+## 9. Email notifications for enquiries (optional)
+
+To receive emails when someone submits the training enquiry form:
+
+1. Deploy the enquiry function:
+
+```bash
+supabase functions deploy send-training-enquiry-notification
+```
+
+2. Create the database trigger (run `supabase/notify_training_enquiry.sql` in the Supabase SQL Editor).
+
+3. Submit an enquiry and verify the email arrives.
 
 ## Security note
 

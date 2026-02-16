@@ -42,10 +42,10 @@
     body { font-family: 'Inter', sans-serif; }
     .font-serif { font-family: 'Playfair Display', serif; }
     .header-blur { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); background-color: rgba(26, 26, 27, 0.85); }
-    .menu-overlay { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.3); opacity: 0; pointer-events: none; transition: opacity 200ms ease; z-index: 50; }
-    .menu-panel { position: fixed; top: 0; right: 0; height: 100%; width: 280px; background: #1A1A1B; border-left: 1px solid rgba(201, 184, 150, 0.3); transform: translateX(100%); transition: transform 220ms ease; z-index: 60; }
+    .menu-overlay { position: fixed; inset: 0; background: rgba(8, 8, 10, 0.65); opacity: 0; pointer-events: none; transition: opacity 220ms ease; z-index: 50; }
+    .menu-panel { position: fixed; inset: 0; background: radial-gradient(circle at top right, rgba(201, 184, 150, 0.08), transparent 45%), linear-gradient(135deg, #141415 0%, #1A1A1B 45%, #101010 100%); opacity: 0; pointer-events: none; transform: translateY(-8px); transition: opacity 220ms ease, transform 220ms ease; z-index: 60; overflow-y: auto; -webkit-overflow-scrolling: touch; }
     .menu-open .menu-overlay { opacity: 1; pointer-events: auto; }
-    .menu-open .menu-panel { transform: translateX(0); }
+    .menu-open .menu-panel { opacity: 1; pointer-events: auto; transform: translateY(0); }
     .menu-open #menu-button { opacity: 0; pointer-events: none; }
   </style>
 </head>
@@ -72,17 +72,53 @@
 
   <div id="menu-overlay" class="menu-overlay" aria-hidden="true"></div>
   <aside id="menu-panel" class="menu-panel" aria-label="Site menu">
-    <div class="flex items-center justify-between px-6 py-5 border-b border-champagne/20">
-      <span class="text-champagne text-xs font-semibold tracking-[0.25em] uppercase">MENU</span>
-      <button id="menu-close" class="text-bone/70 hover:text-bone text-sm">Close</button>
+    <div class="min-h-full px-6 md:px-12 py-8 md:py-12 flex flex-col">
+      <div class="flex items-center justify-between border-b border-champagne/20 pb-4">
+        <span class="text-champagne text-xs font-semibold tracking-[0.35em] uppercase">Navigation</span>
+        <button id="menu-close" class="text-bone/70 hover:text-bone text-sm">Close</button>
+      </div>
+      <div class="flex-1 grid gap-10 md:gap-12 md:grid-cols-[1.2fr_0.8fr] pt-8">
+        <div class="space-y-6">
+          <a href="index.html" class="group flex items-center justify-between border-b border-champagne/20 pb-4">
+            <span class="font-serif text-2xl md:text-3xl text-bone group-hover:text-champagne transition-colors">HOME</span>
+            <span class="text-champagne/60 text-xs tracking-[0.35em]">01</span>
+          </a>
+          <a href="meet-our-pts.html" class="group flex items-center justify-between border-b border-champagne/20 pb-4">
+            <span class="font-serif text-2xl md:text-3xl text-bone group-hover:text-champagne transition-colors">MEET THE TEAM</span>
+            <span class="text-champagne/60 text-xs tracking-[0.35em]">02</span>
+          </a>
+          <a href="contact.html" class="group flex items-center justify-between border-b border-champagne/20 pb-4">
+            <span class="font-serif text-2xl md:text-3xl text-bone group-hover:text-champagne transition-colors">CONTACT US</span>
+            <span class="text-champagne/60 text-xs tracking-[0.35em]">03</span>
+          </a>
+        </div>
+        <div class="flex flex-col gap-8">
+          <div class="border border-champagne/25 bg-black/20 p-6 md:p-8">
+            <div class="text-champagne text-xs font-semibold tracking-[0.25em] uppercase mb-3">Complimentary session</div>
+            <p class="text-bone/70 text-sm mb-4">Start with a personalised consultation at PureGym Spinningfields.</p>
+            <a href="questionnaire.html" class="inline-flex items-center justify-center px-6 py-3 border border-champagne text-champagne text-sm font-medium hover:bg-champagne/10 transition-colors">
+              Claim the complimentary session
+            </a>
+          </div>
+          <div class="space-y-3">
+            <div class="text-bone/60 text-xs tracking-[0.25em] uppercase">Enquiries</div>
+            <a href="enquire.html" class="inline-flex items-center justify-center px-5 py-3 bg-champagne text-charcoal text-sm font-semibold tracking-wide hover:bg-champagne/90 transition-colors">
+              Enquire about personal training
+            </a>
+          </div>
+          <div class="space-y-2">
+            <div class="text-bone/60 text-xs tracking-[0.25em] uppercase">Contact</div>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=contact@triad.fitness" target="_blank" rel="noopener" class="inline-flex items-center justify-center px-4 py-2 border border-champagne/50 text-champagne text-xs font-semibold tracking-[0.2em] uppercase hover:bg-champagne/10 transition-colors">
+              contact@triad.fitness
+            </a>
+            <div class="text-bone/70 text-sm">07440370561</div>
+          </div>
+        </div>
+      </div>
+      <div class="pt-6 border-t border-champagne/10 text-bone/40 text-xs tracking-[0.2em] uppercase">
+        PureGym Spinningfields
+      </div>
     </div>
-    <nav class="flex flex-col py-2">
-      <a href="index.html" class="px-6 py-3 text-sm text-bone/80 hover:text-bone hover:bg-champagne/10 transition-colors">HOME</a>
-      <a href="meet-our-pts.html" class="px-6 py-3 text-sm text-bone/80 hover:text-bone hover:bg-champagne/10 transition-colors">MEET THE TEAM</a>
-      <a href="enquire.html" class="px-6 py-3 text-sm text-bone/80 hover:text-bone hover:bg-champagne/10 transition-colors">ENQUIRE ABOUT PERSONAL TRAINING</a>
-      <a href="contact.html" class="px-6 py-3 text-sm text-bone/80 hover:text-bone hover:bg-champagne/10 transition-colors">CONTACT US</a>
-      <a href="questionnaire.html" class="px-6 py-3 text-sm text-bone/80 hover:text-bone hover:bg-champagne/10 transition-colors">CLAIM THE COMPLIMENTARY SESSION</a>
-    </nav>
   </aside>
 
   <!-- Hero -->
