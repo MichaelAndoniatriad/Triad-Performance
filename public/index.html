@@ -48,18 +48,19 @@
     .menu-open .menu-panel { opacity: 1; pointer-events: auto; transform: translateY(0); }
     .menu-open #menu-button { opacity: 0; pointer-events: none; }
   </style>
+  <link rel="stylesheet" href="assets/animations.css" />
 </head>
 <body class="bg-charcoal text-bone antialiased">
   <!-- Navigation -->
   <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4 px-6 md:px-12">
     <nav class="max-w-7xl mx-auto relative flex items-center justify-between md:min-h-[3rem]">
       <div class="flex items-center gap-6">
-        <a href="index.html" class="font-serif font-semibold tracking-wide text-bone text-lg md:text-xl z-10">TRIAD PERFORMANCE</a>
+        <a href="index.html" class="font-serif font-semibold tracking-wide text-bone text-lg md:text-xl z-10 hover-link-underline">TRIAD PERFORMANCE</a>
       </div>
-      <a href="index.html" class="flex items-center justify-center md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2">
+      <a href="index.html" class="flex items-center justify-center md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 hover-scale-child">
         <img src="assets/logo.png" alt="" class="h-10 md:h-[6.5rem] w-auto object-contain" />
       </a>
-      <button id="menu-button" type="button" class="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 border border-champagne/60 text-champagne text-sm font-medium hover:bg-champagne/10 transition-colors duration-200 z-10" aria-label="Open menu">
+      <button id="menu-button" type="button" class="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 border border-champagne/60 text-champagne text-sm font-medium hover:bg-champagne/10 hover-scale z-10" aria-label="Open menu">
         <span class="sr-only">Open menu</span>
         <span class="flex flex-col gap-1">
           <span class="block w-5 h-px bg-champagne"></span>
@@ -79,15 +80,15 @@
       </div>
       <div class="flex-1 grid gap-10 md:gap-12 md:grid-cols-[1.2fr_0.8fr] pt-8">
         <div class="space-y-6">
-          <a href="index.html" class="group flex items-center justify-between border-b border-champagne/20 pb-4">
+          <a href="index.html" class="group flex items-center justify-between border-b border-champagne/20 pb-4 hover-link-underline">
             <span class="font-serif text-2xl md:text-3xl text-bone group-hover:text-champagne transition-colors">HOME</span>
             <span class="text-champagne/60 text-xs tracking-[0.35em]">01</span>
           </a>
-          <a href="meet-our-pts.html" class="group flex items-center justify-between border-b border-champagne/20 pb-4">
+          <a href="meet-our-pts.html" class="group flex items-center justify-between border-b border-champagne/20 pb-4 hover-link-underline">
             <span class="font-serif text-2xl md:text-3xl text-bone group-hover:text-champagne transition-colors">MEET THE TEAM</span>
             <span class="text-champagne/60 text-xs tracking-[0.35em]">02</span>
           </a>
-          <a href="contact.html" class="group flex items-center justify-between border-b border-champagne/20 pb-4">
+          <a href="contact.html" class="group flex items-center justify-between border-b border-champagne/20 pb-4 hover-link-underline">
             <span class="font-serif text-2xl md:text-3xl text-bone group-hover:text-champagne transition-colors">CONTACT US</span>
             <span class="text-champagne/60 text-xs tracking-[0.35em]">03</span>
           </a>
@@ -96,19 +97,19 @@
           <div class="border border-champagne/25 bg-black/20 p-6 md:p-8">
             <div class="text-champagne text-xs font-semibold tracking-[0.25em] uppercase mb-3">Complimentary session</div>
             <p class="text-bone/70 text-sm mb-4">Start with a personalised consultation at PureGym Spinningfields.</p>
-            <a href="questionnaire.html" class="inline-flex items-center justify-center px-6 py-3 border border-champagne text-champagne text-sm font-medium hover:bg-champagne/10 transition-colors">
+            <a href="questionnaire.html" class="inline-flex items-center justify-center px-6 py-3 border border-champagne text-champagne text-sm font-medium hover:bg-champagne/10 hover-btn-lift">
               Claim the complimentary session
             </a>
           </div>
           <div class="space-y-3">
             <div class="text-bone/60 text-xs tracking-[0.25em] uppercase">Enquiries</div>
-            <a href="enquire.html" class="inline-flex items-center justify-center px-5 py-3 bg-champagne text-charcoal text-sm font-semibold tracking-wide hover:bg-champagne/90 transition-colors">
+            <a href="enquire.html" class="inline-flex items-center justify-center px-5 py-3 bg-champagne text-charcoal text-sm font-semibold tracking-wide hover:bg-champagne/90 hover-btn-lift">
               Enquire about personal training
             </a>
           </div>
           <div class="space-y-2">
             <div class="text-bone/60 text-xs tracking-[0.25em] uppercase">Contact</div>
-            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=contact@triad.fitness" target="_blank" rel="noopener" class="inline-flex items-center justify-center px-4 py-2 border border-champagne/50 text-champagne text-xs font-semibold tracking-[0.2em] uppercase hover:bg-champagne/10 transition-colors">
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=contact@triad.fitness" target="_blank" rel="noopener" class="inline-flex items-center justify-center px-4 py-2 border border-champagne/50 text-champagne text-xs font-semibold tracking-[0.2em] uppercase hover:bg-champagne/10 hover-lift">
               contact@triad.fitness
             </a>
             <div class="text-bone/70 text-sm">07440370561</div>
@@ -131,45 +132,41 @@
     <div class="absolute inset-0 bg-charcoal/70"></div>
     <div class="absolute inset-x-0 bottom-0 h-40 md:h-56 bg-gradient-to-t from-charcoal to-transparent z-[1]" aria-hidden="true"></div>
     <div class="relative z-10 max-w-4xl mx-auto px-6 md:px-12 text-center pt-24 pb-16">
-      <p class="text-champagne text-xs font-semibold tracking-[0.25em] uppercase mb-6">PureGym Spinningfields</p>
-      <h1 class="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-bone leading-tight tracking-tight mb-6">
-        CONSISTENCY OVER PERFECTION.
-      </h1>
-      <p class="text-bone/90 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light">
-        Triad Performance understands how difficult it is to get everything right while managing it all at once - the career, the training, the nutrition. Our approach is built for the reality of a high-pressure life, delivering a life-changing transformation and the physique you've always wanted through long-term, sustainable change.
+      <p class="text-champagne text-xs font-semibold tracking-[0.25em] uppercase mb-6" data-animate="fade-in-up" data-animate-delay="0">PureGym Spinningfields</p>
+      <h1 class="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-bone leading-tight tracking-tight mb-6" data-animate="fade-in-up" data-animate-delay="80">CONSISTENCY OVER PERFECTION.</h1>
+      <p class="text-bone/90 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light" data-animate="fade-in-up" data-animate-delay="160">
+        Triad Performance understands how difficult it is to get everything right while managing it all at once. Our approach is built for the reality of a high-pressure life, delivering sustainable change and the physique you've always wanted.
       </p>
-      <a href="questionnaire.html" class="inline-flex items-center gap-2 px-8 py-4 bg-champagne/20 border border-champagne text-champagne font-medium hover:bg-champagne/30 transition-colors duration-200">
-        Claim the complimentary session
-      </a>
+      <a href="questionnaire.html" class="inline-flex items-center gap-2 px-8 py-4 bg-champagne/20 border border-champagne text-champagne font-medium hover:bg-champagne/30 hover-btn-lift" data-animate="fade-in-up" data-animate-delay="240">Claim the complimentary session</a>
     </div>
   </section>
 
   <!-- The Methodology -->
   <section id="methodology" class="py-24 md:py-32 px-6 md:px-12">
     <div class="max-w-7xl mx-auto">
-      <p class="text-champagne text-xs font-semibold tracking-[0.25em] uppercase text-center mb-3">The Methodology</p>
-      <h2 class="font-serif text-2xl md:text-3xl text-bone text-center mb-4">Three pillars. One system.</h2>
-      <div class="grid md:grid-cols-3 gap-8 md:gap-10">
+      <p class="text-champagne text-xs font-semibold tracking-[0.25em] uppercase text-center mb-3" data-animate="fade-in-up">The Methodology</p>
+      <h2 class="font-serif text-2xl md:text-3xl text-bone text-center mb-4" data-animate="fade-in-up" data-animate-delay="80">Three pillars. One system.</h2>
+      <div class="grid md:grid-cols-3 gap-10 md:gap-14">
         <!-- Pillar 1 -->
-        <div class="group border border-champagne/30 hover:border-champagne/50 transition-colors duration-300 p-8 md:p-10">
-          <div class="w-12 h-12 flex items-center justify-center border border-champagne/50 text-champagne mb-6">
-            <i data-lucide="trending-up" class="w-6 h-6" stroke-width="1.5"></i>
+        <div class="group border border-champagne/25 hover:border-champagne/50 hover-card-glow p-8 md:p-10" data-animate="fade-in-up" data-animate-delay="160">
+          <div class="w-12 h-12 flex items-center justify-center border border-champagne/40 text-champagne mb-6">
+            <i data-lucide="trending-up" class="w-6 h-6 hover-icon-pulse" stroke-width="1.5"></i>
           </div>
           <h3 class="font-serif text-xl text-bone mb-3">Compound Consistency</h3>
           <p class="text-bone/70 text-sm leading-relaxed">We prioritise the 1% changes that you can actually maintain. Perfection is a myth; long-term adherence is the only metric that matters.</p>
         </div>
         <!-- Pillar 2 -->
-        <div class="group border border-champagne/30 hover:border-champagne/50 transition-colors duration-300 p-8 md:p-10">
-          <div class="w-12 h-12 flex items-center justify-center border border-champagne/50 text-champagne mb-6">
-            <i data-lucide="crosshair" class="w-6 h-6" stroke-width="1.5"></i>
+        <div class="group border border-champagne/25 hover:border-champagne/50 hover-card-glow p-8 md:p-10" data-animate="fade-in-up" data-animate-delay="240">
+          <div class="w-12 h-12 flex items-center justify-center border border-champagne/40 text-champagne mb-6">
+            <i data-lucide="crosshair" class="w-6 h-6 hover-icon-pulse" stroke-width="1.5"></i>
           </div>
           <h3 class="font-serif text-xl text-bone mb-3">Sequential Focus</h3>
           <p class="text-bone/70 text-sm leading-relaxed">One habit at a time. We strip away the noise and focus on the single most impactful change to your health right now, ensuring you never feel bombarded.</p>
         </div>
         <!-- Pillar 3 -->
-        <div class="group border border-champagne/30 hover:border-champagne/50 transition-colors duration-300 p-8 md:p-10">
-          <div class="w-12 h-12 flex items-center justify-center border border-champagne/50 text-champagne mb-6">
-            <i data-lucide="calendar-check" class="w-6 h-6" stroke-width="1.5"></i>
+        <div class="group border border-champagne/25 hover:border-champagne/50 hover-card-glow p-8 md:p-10" data-animate="fade-in-up" data-animate-delay="320">
+          <div class="w-12 h-12 flex items-center justify-center border border-champagne/40 text-champagne mb-6">
+            <i data-lucide="calendar-check" class="w-6 h-6 hover-icon-pulse" stroke-width="1.5"></i>
           </div>
           <h3 class="font-serif text-xl text-bone mb-3">Sustainable Integration</h3>
           <p class="text-bone/70 text-sm leading-relaxed">Your fitness must serve your life, not the other way around. We build your training around your boardroom schedule and travel, not in spite of it.</p>
@@ -181,22 +178,22 @@
   <!-- Specialities -->
   <section id="specialities" class="py-24 md:py-32 px-6 md:px-12 bg-black/40">
     <div class="max-w-7xl mx-auto">
-      <p class="text-champagne text-xs font-semibold tracking-[0.25em] uppercase text-center mb-3">Specialities</p>
-      <h2 class="font-serif text-2xl md:text-3xl text-bone text-center mb-16">What we work on</h2>
-      <div class="grid md:grid-cols-2 gap-8 md:gap-10">
-        <div class="border border-champagne/30 p-8 md:p-10">
+      <p class="text-champagne text-xs font-semibold tracking-[0.25em] uppercase text-center mb-3" data-animate="fade-in-up">Specialities</p>
+      <h2 class="font-serif text-2xl md:text-3xl text-bone text-center mb-16" data-animate="fade-in-up" data-animate-delay="80">What we work on</h2>
+      <div class="grid md:grid-cols-2 gap-10 md:gap-12">
+        <div class="border border-champagne/30 hover:border-champagne/50 hover-card-glow p-8 md:p-10" data-animate="fade-in-up" data-animate-delay="160">
           <h3 class="font-serif text-xl text-champagne mb-2">Strength & Conditioning</h3>
           <p class="text-bone/80 text-sm leading-relaxed">Building the Engine. Elite athletic principles applied to the professional lifestyle.</p>
         </div>
-        <div class="border border-champagne/30 p-8 md:p-10">
+        <div class="border border-champagne/30 hover:border-champagne/50 hover-card-glow p-8 md:p-10" data-animate="fade-in-up" data-animate-delay="240">
           <h3 class="font-serif text-xl text-champagne mb-2">Cognitive Performance</h3>
           <p class="text-bone/80 text-sm leading-relaxed">The Executive Edge. Optimizing neuro-efficiency through specific movement protocols, sleep hygiene, and physiological stress management to ensure peak mental clarity.</p>
         </div>
-        <div class="border border-champagne/30 p-8 md:p-10">
+        <div class="border border-champagne/30 hover:border-champagne/50 hover-card-glow p-8 md:p-10" data-animate="fade-in-up" data-animate-delay="320">
           <h3 class="font-serif text-xl text-champagne mb-2">Nutrition Psychology</h3>
           <p class="text-bone/80 text-sm leading-relaxed">Behavioral Fueling. Moving beyond the plate to master the stressors and habits of a high-pressure career.</p>
         </div>
-        <div class="border border-champagne/30 p-8 md:p-10">
+        <div class="border border-champagne/30 hover:border-champagne/50 hover-card-glow p-8 md:p-10" data-animate="fade-in-up" data-animate-delay="400">
           <h3 class="font-serif text-xl text-champagne mb-2">Sports Specific (Contact & Impact)</h3>
           <p class="text-bone/80 text-sm leading-relaxed">The Competitive Athlete. Precision programming for rugby, combat sports, and field athletics to maximize power and mitigate injury.</p>
         </div>
@@ -205,9 +202,9 @@
   </section>
 
   <!-- Footer -->
-  <footer class="py-8 px-6 md:px-12 border-t border-bone/10">
+  <footer class="py-8 px-6 md:px-12 border-t border-bone/10" data-animate="fade-in">
     <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-      <a href="#" class="flex items-center">
+      <a href="index.html" class="flex items-center hover-scale-child">
         <img src="assets/logo.png" alt="TRIAD PERFORMANCE" class="h-[5rem] w-auto object-contain opacity-90" />
       </a>
       <div class="text-champagne text-sm text-center sm:text-right">
@@ -217,6 +214,7 @@
     </div>
   </footer>
 
+  <script src="assets/animations.js"></script>
   <script>
     if (window.location.hash === '#apply') {
       window.location.replace('questionnaire.html');

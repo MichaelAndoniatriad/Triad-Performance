@@ -1,0 +1,101 @@
+/* Premium scroll animations - clean, slow, elegant */
+
+/* Hover animations - subtle, premium feel */
+@media (prefers-reduced-motion: no-preference) {
+  .hover-lift {
+    transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .hover-lift:hover {
+    transform: translateY(-3px);
+  }
+
+  .hover-scale {
+    transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .hover-scale:hover {
+    transform: scale(1.02);
+  }
+
+  /* For centered logos - scale child to avoid breaking layout */
+  .hover-scale-child img,
+  .hover-scale-child > * {
+    transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .hover-scale-child:hover img,
+  .hover-scale-child:hover > * {
+    transform: scale(1.02);
+  }
+
+  .hover-lift-card {
+    transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.32s ease;
+  }
+  .hover-lift-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px -12px rgba(0, 0, 0, 0.4);
+  }
+
+  .hover-card-glow {
+    transition: border-color 0.28s ease, transform 0.28s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.28s ease;
+  }
+  .hover-card-glow:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(201, 184, 150, 0.15);
+  }
+
+  .hover-btn-lift {
+    transition: transform 0.24s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.2s ease, border-color 0.2s ease;
+  }
+  .hover-btn-lift:hover {
+    transform: translateY(-2px);
+  }
+
+  .hover-icon-pulse {
+    transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .group:hover .hover-icon-pulse {
+    transform: scale(1.08);
+  }
+
+  .hover-link-underline {
+    position: relative;
+  }
+  .hover-link-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: currentColor;
+    transition: width 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .hover-link-underline:hover::after {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  [data-animate] {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  [data-animate].is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  [data-animate="fade-in"] {
+    transform: none;
+  }
+
+  [data-animate].is-visible[data-animate="fade-in"] {
+    transform: none;
+  }
+
+  [data-animate] {
+    transition:
+      opacity 2s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+}
