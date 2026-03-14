@@ -16,13 +16,17 @@
     { threshold: 0.08, rootMargin: '0px 0px -50px 0px' }
   );
 
-  function init() {
-    requestAnimationFrame(function () {
-      document.querySelectorAll('[data-animate]').forEach(function (el) {
-        observer.observe(el);
-      });
+  function observeAll() {
+    document.querySelectorAll('[data-animate]:not(.is-visible)').forEach(function (el) {
+      observer.observe(el);
     });
   }
+
+  function init() {
+    requestAnimationFrame(observeAll);
+  }
+
+  window.observeTriadAnimations = observeAll;
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
