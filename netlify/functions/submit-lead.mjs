@@ -20,10 +20,17 @@ export const handler = async (event) => {
     return json(405, { error: 'Method not allowed' });
   }
 
-  const databaseUrl = process.env.DATABASE_URL;
+  // Netlify’s Neon integration sets NETLIFY_DATABASE_URL; manual setup often uses DATABASE_URL
+  const databaseUrl =
+    process.env.NETLIFY_DATABASE_URL || process.env.DATABASE_URL;
   if (!databaseUrl) {
-    console.error('DATABASE_URL is not set');
-    return json(500, { error: 'Server configuration error' });
+    console.error(
+      'No database URL: set DATABASE_URL or connect Neon in Netlify (NETLIFY_DATABASE_URL).'
+    );
+    return json(500, {
+      error:
+        'Server configuration error: database URL is not set. In Netlify → Environment variables add DATABASE_URL, or use Integrations → Neon.',
+    });
   }
 
   let body;
@@ -94,7 +101,23 @@ export const handler = async (event) => {
 
     return json(400, { error: 'Unknown form type' });
   } catch (err) {
-    console.error(err);
-    return json(500, { error: 'Could not save your submission. Please try again.' });
+    const msg = err && err.message ? String(err.message) : String(err);
+    console.error('submit-lead DB error:', msg);
+    if (/does not exist|42P01/i.test(msg)) {
+      return json(500, {
+        error:
+          'Database tables are missing. In Neon → SQL Editor, run the script from database/schema.sql in your repo.',
+      });
+    }
+    if (/password authentication|ECONNREFUSED|getaddrinfo/i.test(msg)) {
+      return json(500, {
+        error:
+          'Could not connect to the database. Check the connection string in Netlify environment variables.',
+      });
+    }
+    return json(500, {
+      error:
+        'Could not save your submission. Please try again or email contact@triad.fitness.',
+    });
   }
 };

@@ -249,8 +249,21 @@
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ form: 'enquiry', data: payload }),
         });
-        const body = await res.json().catch(() => ({}));
-        if (!res.ok) throw new Error(body.error || res.statusText);
+        const raw = await res.text();
+        let body = {};
+        try {
+          body = raw ? JSON.parse(raw) : {};
+        } catch {
+          body = {};
+        }
+        if (!res.ok) {
+          const hint =
+            body.error ||
+            (res.status === 404
+              ? 'Form handler not deployed. Redeploy the site on Netlify.'
+              : `${res.status} ${res.statusText || 'Error'}`.trim());
+          throw new Error(hint);
+        }
         form.reset();
         showMessage('Thanks for the enquiry. We will be in touch shortly.', false);
       } catch (err) {
