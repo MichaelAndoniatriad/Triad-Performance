@@ -1,4 +1,7 @@
-# Netlify config for TRIAD PERFORMANCE (static site)
+# Netlify config for TRIAD PERFORMANCE (static site + form API)
 [build]
   publish = "public"
   command = "npm run build"
+
+[functions]
+  directory = "netlify/functions"

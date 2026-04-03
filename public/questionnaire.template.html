@@ -189,7 +189,6 @@
   </footer>
 
   <script src="assets/animations.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script>
     const header = document.getElementById('header');
     window.addEventListener('scroll', () => {
@@ -211,16 +210,7 @@
       if (event.key === 'Escape') closeMenu();
     });
 
-    // Injected at build from .env – do not commit real values
-    const SUPABASE_URL = '__SUPABASE_URL__';
-    const SUPABASE_ANON_KEY = '__SUPABASE_ANON_KEY__';
-    const PLACEHOLDER_URL = '__SUPABASE_' + 'URL__';
-    const PLACEHOLDER_KEY = '__SUPABASE_' + 'ANON_KEY__';
-    const isSupabaseConfigured =
-      SUPABASE_URL &&
-      SUPABASE_ANON_KEY &&
-      SUPABASE_URL !== PLACEHOLDER_URL &&
-      SUPABASE_ANON_KEY !== PLACEHOLDER_KEY;
+    const SUBMIT_URL = '/.netlify/functions/submit-lead';
 
     const form = document.getElementById('consultation-form');
     const formMessage = document.getElementById('form-message');
@@ -228,10 +218,6 @@
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      if (!isSupabaseConfigured) {
-        showMessage('Supabase is not configured. Run npm run build and add SUPABASE_URL and SUPABASE_ANON_KEY to .env', true);
-        return;
-      }
 
       submitBtn.disabled = true;
       submitBtn.textContent = 'Submitting…';
@@ -248,11 +234,13 @@
       };
 
       try {
-        const { createClient } = supabase;
-        const supabaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-        const { error } = await supabaseClient.from('consultation_requests').insert([payload]);
-
-        if (error) throw error;
+        const res = await fetch(SUBMIT_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ form: 'consultation', data: payload }),
+        });
+        const body = await res.json().catch(() => ({}));
+        if (!res.ok) throw new Error(body.error || res.statusText);
         form.reset();
         window.location.href = 'thank-you.html';
       } catch (err) {

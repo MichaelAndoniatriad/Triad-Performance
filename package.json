@@ -2,7 +2,11 @@
   "name": "triad-performance",
   "private": true,
   "scripts": {
-    "build": "node scripts/inject-env.js",
-    "dev": "npx serve public -p 8080"
+    "build": "node scripts/build-forms.js",
+    "dev": "npx serve public -p 8080",
+    "dev:netlify": "netlify dev"
+  },
+  "dependencies": {
+    "@neondatabase/serverless": "^0.10.4"
   }
 }

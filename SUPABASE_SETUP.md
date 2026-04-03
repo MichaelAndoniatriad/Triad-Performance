@@ -1,5 +1,7 @@
 # Connect TRIAD PERFORMANCE to Supabase
 
+> **Note:** The live site is now set up for **Neon + Netlify Functions** instead. See **`FORMS_SETUP.md`**. This file is kept for reference if you still use Supabase elsewhere.
+
 ## 1. Create a Supabase project
 
 1. Go to [supabase.com](https://supabase.com) and sign in or create an account.

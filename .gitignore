@@ -1,4 +1,5 @@
 .env
+node_modules/
 public/questionnaire.html
 public/enquire.html
 supabase/.temp

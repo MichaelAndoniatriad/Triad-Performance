@@ -1,1 +1,2 @@
-a
+-- Legacy: this project now stores leads in Neon + Netlify Functions.
+-- See database/schema.sql for the current schema.
