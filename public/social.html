@@ -12,31 +12,25 @@
     })(window, document, "clarity", "script", "vh9yezxvrj");
   </script>
   <meta name="google-site-verification" content="d8WlK51CojFUaU8riIZrYsK4n8nbq6s0EOLgcM6KGGQ" />
-  <title>Get in touch | Triad Performance | Spinningfields, Manchester</title>
-  <meta name="description" content="Tell us about your goals — Triad Performance, personal training at PureGym Spinningfields, Manchester." />
+  <title>Book a free consultation</title>
+  <meta name="description" content="Book a free consultation. Coaching for professionals who want results that fit around real life." />
   <meta name="geo.region" content="GB-MAN">
   <meta name="geo.placename" content="Manchester">
   <link rel="canonical" href="https://triad.fitness/social.html" />
-  <meta property="og:title" content="Get in touch | Triad Performance">
-  <meta property="og:description" content="Tell us about your goals — personal training in Spinningfields, Manchester.">
+  <meta property="og:title" content="Book a free consultation">
+  <meta property="og:description" content="Working with professionals who want results that fit around a real life.">
   <meta property="og:url" content="https://triad.fitness/social.html">
   <meta property="og:type" content="website">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <script>
     tailwind.config = {
       theme: {
         extend: {
-          colors: {
-            charcoal: '#1A1A1B',
-            bone: '#F5F3EF',
-            champagne: '#C9B896',
-          },
           fontFamily: {
-            serif: ['Playfair Display', 'serif'],
-            sans: ['Inter', 'sans-serif'],
+            sans: ['Manrope', 'system-ui', 'sans-serif'],
           },
         },
       },
@@ -44,62 +38,172 @@
   </script>
   <style>
     html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', sans-serif; }
-    .font-serif { font-family: 'Playfair Display', serif; }
-    .header-blur { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); background-color: rgba(26, 26, 27, 0.92); }
+    body { font-family: 'Manrope', system-ui, sans-serif; }
+    .reviews-marquee-bleed {
+      position: relative;
+      left: 50%;
+      width: 100vw;
+      transform: translateX(-50%);
+    }
+    @keyframes reviews-marquee-scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .reviews-marquee-track {
+      display: flex;
+      width: max-content;
+      gap: 0.75rem;
+      animation: reviews-marquee-scroll 90s linear infinite;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .reviews-marquee-track { animation: none; }
+    }
+    /* Show exactly 3 tiles (+ gaps between them); fourth scrolls in from the side */
+    .reviews-marquee-viewport {
+      width: min(100%, calc(3 * 11.1rem + 2 * 0.75rem));
+      margin-left: auto;
+      margin-right: auto;
+      overflow: hidden;
+    }
+    @media (min-width: 640px) {
+      .reviews-marquee-viewport {
+        width: min(100%, calc(3 * 12rem + 2 * 0.75rem));
+      }
+    }
+    .review-tile-stars {
+      font-size: 0.66rem;
+      letter-spacing: 0.06em;
+      color: #c5a028;
+      text-shadow: 0 0 0.5px rgba(197, 160, 40, 0.35);
+    }
+    /* Round crop: emphasise head & upper body (full-length photo) */
+    .social-profile-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 20%;
+      transform: scale(1.38) translateY(-14%);
+      transform-origin: center 24%;
+    }
   </style>
-  <link rel="stylesheet" href="assets/animations.css" />
 </head>
-<body class="bg-charcoal text-bone antialiased min-h-screen flex flex-col">
-  <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4 px-6 md:px-12 border-b border-champagne/10">
-    <div class="max-w-3xl mx-auto flex items-center justify-between gap-4">
-      <a href="index.html" class="font-serif font-semibold tracking-wide text-bone text-base md:text-lg hover:text-champagne transition-colors">TRIAD PERFORMANCE</a>
-      <a href="index.html" class="text-champagne/80 hover:text-champagne text-xs font-medium tracking-[0.2em] uppercase shrink-0">Main site</a>
-    </div>
-  </header>
-
-  <main class="flex-1 pt-24 md:pt-28 pb-12 px-4 md:px-6">
-    <div class="max-w-xl mx-auto text-center mb-8 md:mb-10" data-animate="fade-in-up">
-      <p class="text-champagne text-xs font-semibold tracking-[0.25em] uppercase mb-3">Triad Performance</p>
-      <h1 class="font-serif text-3xl md:text-4xl text-bone mb-3">Start the conversation</h1>
-      <p class="text-bone/65 text-sm md:text-base leading-relaxed max-w-md mx-auto">
-        Complete the short form below and we will get back to you. PureGym Spinningfields, Manchester.
+<body class="min-h-screen overflow-x-hidden bg-[#fafafa] text-gray-900 antialiased">
+  <main class="mx-auto max-w-3xl px-5 py-14 sm:py-20 sm:px-8">
+    <header class="mb-8 text-center sm:mb-10">
+      <div class="mx-auto mb-5 h-32 w-32 overflow-hidden rounded-full border border-gray-200/90 bg-gray-100 shadow-md ring-4 ring-white sm:mb-6 sm:h-40 sm:w-40">
+        <img
+          src="assets/profile-social.png"
+          alt="Michael Andonia"
+          class="social-profile-photo"
+          width="160"
+          height="160"
+          loading="eager"
+          decoding="async"
+        />
+      </div>
+      <h1 class="text-[1.65rem] font-semibold leading-snug tracking-tight text-gray-900 sm:text-3xl sm:leading-tight">
+        You already know what needs to change.
+      </h1>
+      <p class="mx-auto mt-5 max-w-xl text-center text-sm leading-relaxed text-gray-600 sm:mt-6 sm:text-base">
+        I understand how difficult it is to get everything right while managing it all at once. My approach is built for the reality of a high-pressure life, delivering sustainable change and the physique you've always wanted.
       </p>
-    </div>
+      <a
+        href="#booking"
+        class="mt-6 inline-flex items-center justify-center rounded-lg border border-blue-700 bg-blue-600 px-6 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:border-blue-800 hover:bg-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 sm:mt-8 sm:px-7 sm:py-3 sm:text-base"
+      >
+        Book a free consultation
+      </a>
+    </header>
 
-    <div class="max-w-2xl mx-auto border border-champagne/25 bg-black/20 p-4 md:p-6 md:px-8" data-animate="fade-in-up">
+    <section class="reviews-marquee-bleed mb-10 overflow-hidden border-y border-gray-200/60 bg-white/70 py-6 sm:mb-12 sm:py-8" aria-label="Client reviews">
+      <h2 class="mb-4 text-center text-base font-semibold tracking-tight text-gray-900 sm:text-lg">
+        What clients say
+      </h2>
+      <p class="mb-5 text-center text-[0.65rem] text-gray-500">
+        Five-star reviews from Google · shared with permission
+      </p>
+      <div class="overflow-hidden px-1">
+        <div class="reviews-marquee-viewport">
+        <div class="reviews-marquee-track" role="list">
+          <!-- duplicate set for seamless loop -->
+          <figure class="review-tile flex h-[11.1rem] w-[11.1rem] flex-shrink-0 flex-col rounded-md border border-gray-200/90 bg-white p-3 shadow-sm sm:h-48 sm:w-48 sm:p-3.5" role="listitem">
+            <div class="review-tile-stars mb-1.5 shrink-0" aria-hidden="true">★★★★★</div>
+            <blockquote class="min-h-0 flex-1 overflow-hidden text-[0.78rem] leading-snug text-gray-600 sm:text-[0.84rem]">
+              <p class="line-clamp-[9] sm:line-clamp-[11]">Michael has been so helpful getting me back into the gym and conscious of my wellbeing. Online sessions weekly — feedback on training, form, nutrition and water. A top guy: fair, understands life outside the gym, firm when it counts. Would 100% recommend.</p>
+            </blockquote>
+            <figcaption class="mt-1.5 shrink-0 truncate border-t border-gray-100 pt-1.5 text-[0.72rem] font-semibold text-gray-900 sm:text-[0.75rem]">Chloe Cassidy</figcaption>
+          </figure>
+          <figure class="review-tile flex h-[11.1rem] w-[11.1rem] flex-shrink-0 flex-col rounded-md border border-gray-200/90 bg-white p-3 shadow-sm sm:h-48 sm:w-48 sm:p-3.5" role="listitem">
+            <div class="review-tile-stars mb-1.5 shrink-0" aria-hidden="true">★★★★★</div>
+            <blockquote class="min-h-0 flex-1 overflow-hidden text-[0.78rem] leading-snug text-gray-600 sm:text-[0.84rem]">
+              <p class="line-clamp-[9] sm:line-clamp-[11]">Very professional, enjoying his plan and diet. Always willing to help and goes above and beyond.</p>
+            </blockquote>
+            <figcaption class="mt-1.5 shrink-0 truncate border-t border-gray-100 pt-1.5 text-[0.72rem] font-semibold text-gray-900 sm:text-[0.75rem]">Toqir Qureshi</figcaption>
+          </figure>
+          <figure class="review-tile flex h-[11.1rem] w-[11.1rem] flex-shrink-0 flex-col rounded-md border border-gray-200/90 bg-white p-3 shadow-sm sm:h-48 sm:w-48 sm:p-3.5" role="listitem">
+            <div class="review-tile-stars mb-1.5 shrink-0" aria-hidden="true">★★★★★</div>
+            <blockquote class="min-h-0 flex-1 overflow-hidden text-[0.78rem] leading-snug text-gray-600 sm:text-[0.84rem]">
+              <p class="line-clamp-[9] sm:line-clamp-[11]">Could not recommend Michael enough. Energy and knowledge keep you motivated. New passion for weightlifting. Holistic approach: fitness, eating habits, sleep — feel better overall. Absolute superstar.</p>
+            </blockquote>
+            <figcaption class="mt-1.5 shrink-0 truncate border-t border-gray-100 pt-1.5 text-[0.72rem] font-semibold text-gray-900 sm:text-[0.75rem]">Aron Dreczewski</figcaption>
+          </figure>
+          <figure class="review-tile flex h-[11.1rem] w-[11.1rem] flex-shrink-0 flex-col rounded-md border border-gray-200/90 bg-white p-3 shadow-sm sm:h-48 sm:w-48 sm:p-3.5" role="listitem">
+            <div class="review-tile-stars mb-1.5 shrink-0" aria-hidden="true">★★★★★</div>
+            <blockquote class="min-h-0 flex-1 overflow-hidden text-[0.78rem] leading-snug text-gray-600 sm:text-[0.84rem]">
+              <p class="line-clamp-[9] sm:line-clamp-[11]">Very good and knowledgeable. What makes him special is the personal touch and being available beyond contracted hours.</p>
+            </blockquote>
+            <figcaption class="mt-1.5 shrink-0 truncate border-t border-gray-100 pt-1.5 text-[0.72rem] font-semibold text-gray-900 sm:text-[0.75rem]">M Y Fekete</figcaption>
+          </figure>
+          <figure class="review-tile flex h-[11.1rem] w-[11.1rem] flex-shrink-0 flex-col rounded-md border border-gray-200/90 bg-white p-3 shadow-sm sm:h-48 sm:w-48 sm:p-3.5" role="listitem">
+            <div class="review-tile-stars mb-1.5 shrink-0" aria-hidden="true">★★★★★</div>
+            <blockquote class="min-h-0 flex-1 overflow-hidden text-[0.78rem] leading-snug text-gray-600 sm:text-[0.84rem]">
+              <p class="line-clamp-[9] sm:line-clamp-[11]">Michael has been so helpful getting me back into the gym and conscious of my wellbeing. Online sessions weekly — feedback on training, form, nutrition and water. A top guy: fair, understands life outside the gym, firm when it counts. Would 100% recommend.</p>
+            </blockquote>
+            <figcaption class="mt-1.5 shrink-0 truncate border-t border-gray-100 pt-1.5 text-[0.72rem] font-semibold text-gray-900 sm:text-[0.75rem]">Chloe Cassidy</figcaption>
+          </figure>
+          <figure class="review-tile flex h-[11.1rem] w-[11.1rem] flex-shrink-0 flex-col rounded-md border border-gray-200/90 bg-white p-3 shadow-sm sm:h-48 sm:w-48 sm:p-3.5" role="listitem">
+            <div class="review-tile-stars mb-1.5 shrink-0" aria-hidden="true">★★★★★</div>
+            <blockquote class="min-h-0 flex-1 overflow-hidden text-[0.78rem] leading-snug text-gray-600 sm:text-[0.84rem]">
+              <p class="line-clamp-[9] sm:line-clamp-[11]">Very professional, enjoying his plan and diet. Always willing to help and goes above and beyond.</p>
+            </blockquote>
+            <figcaption class="mt-1.5 shrink-0 truncate border-t border-gray-100 pt-1.5 text-[0.72rem] font-semibold text-gray-900 sm:text-[0.75rem]">Toqir Qureshi</figcaption>
+          </figure>
+          <figure class="review-tile flex h-[11.1rem] w-[11.1rem] flex-shrink-0 flex-col rounded-md border border-gray-200/90 bg-white p-3 shadow-sm sm:h-48 sm:w-48 sm:p-3.5" role="listitem">
+            <div class="review-tile-stars mb-1.5 shrink-0" aria-hidden="true">★★★★★</div>
+            <blockquote class="min-h-0 flex-1 overflow-hidden text-[0.78rem] leading-snug text-gray-600 sm:text-[0.84rem]">
+              <p class="line-clamp-[9] sm:line-clamp-[11]">Could not recommend Michael enough. Energy and knowledge keep you motivated. New passion for weightlifting. Holistic approach: fitness, eating habits, sleep — feel better overall. Absolute superstar.</p>
+            </blockquote>
+            <figcaption class="mt-1.5 shrink-0 truncate border-t border-gray-100 pt-1.5 text-[0.72rem] font-semibold text-gray-900 sm:text-[0.75rem]">Aron Dreczewski</figcaption>
+          </figure>
+          <figure class="review-tile flex h-[11.1rem] w-[11.1rem] flex-shrink-0 flex-col rounded-md border border-gray-200/90 bg-white p-3 shadow-sm sm:h-48 sm:w-48 sm:p-3.5" role="listitem">
+            <div class="review-tile-stars mb-1.5 shrink-0" aria-hidden="true">★★★★★</div>
+            <blockquote class="min-h-0 flex-1 overflow-hidden text-[0.78rem] leading-snug text-gray-600 sm:text-[0.84rem]">
+              <p class="line-clamp-[9] sm:line-clamp-[11]">Very good and knowledgeable. What makes him special is the personal touch and being available beyond contracted hours.</p>
+            </blockquote>
+            <figcaption class="mt-1.5 shrink-0 truncate border-t border-gray-100 pt-1.5 text-[0.72rem] font-semibold text-gray-900 sm:text-[0.75rem]">M Y Fekete</figcaption>
+          </figure>
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <p class="mx-auto mb-8 max-w-md text-center text-sm leading-relaxed text-gray-500 sm:mb-10 sm:text-base">
+      Working with professionals who want results that fit around a real life.
+    </p>
+
+    <div id="booking" class="scroll-mt-6 overflow-hidden rounded-2xl border border-gray-200/80 bg-white shadow-sm shadow-gray-200/50">
+      <!-- Motion embed begin -->
       <iframe
-        id="JotFormIFrame-252022727447051"
-        title="Triadfitness"
-        onload="window.parent.scrollTo(0,0)"
-        allowtransparency="true"
-        allow="geolocation; microphone; camera; fullscreen; payment"
-        src="https://form.jotform.com/tr1admcr/form"
+        src="https://app.usemotion.com/meet/michael-andonia/Consultation"
+        title="Motion Booking Page"
+        class="block w-full min-h-[720px] sm:min-h-[840px]"
+        style="height: 840px; max-width: 100%;"
+        width="100%"
+        height="840"
         frameborder="0"
-        style="min-width:100%;max-width:100%;height:539px;border:none;"
-        scrolling="no"
       ></iframe>
-      <script src="https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js"></script>
-      <script>window.jotformEmbedHandler("iframe[id='JotFormIFrame-252022727447051']", "https://form.jotform.com/")</script>
+      <!-- Motion embed end -->
     </div>
   </main>
-
-  <footer class="py-8 px-6 border-t border-bone/10">
-    <div class="max-w-2xl mx-auto flex flex-col items-center gap-3 text-center">
-      <a href="index.html" class="inline-block">
-        <img src="assets/logo.png" alt="TRIAD PERFORMANCE" class="h-12 w-auto object-contain opacity-90" />
-      </a>
-      <p class="text-bone/45 text-xs">PureGym Spinningfields · Manchester</p>
-    </div>
-  </footer>
-
-  <script src="assets/animations.js"></script>
-  <script>
-    const header = document.getElementById('header');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 40) header.classList.add('header-blur');
-      else header.classList.remove('header-blur');
-    });
-  </script>
 </body>
 </html>
