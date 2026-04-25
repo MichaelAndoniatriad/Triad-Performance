@@ -54,18 +54,45 @@
     .menu-open .menu-overlay { opacity: 1; pointer-events: auto; }
     .menu-open .menu-panel { opacity: 1; pointer-events: auto; transform: translateY(0); }
     .menu-open #menu-button { opacity: 0; pointer-events: none; }
-    .format-toggle { display: inline-flex; background: rgba(0,0,0,0.5); border: 1px solid rgba(201,184,150,0.25); padding: 6px; gap: 0; }
-    .format-toggle button { display: inline-flex; align-items: center; gap: 10px; padding: 14px 28px; font-size: 0.875rem; font-weight: 500; letter-spacing: 0.05em; transition: all 0.3s cubic-bezier(0.22,1,0.36,1); }
-    .format-toggle button:not(.active) { color: rgba(245,243,239,0.5); }
-    .format-toggle button:not(.active):hover { color: rgba(245,243,239,0.85); }
-    .format-toggle button.active { background: rgba(201,184,150,0.12); color: #C9B896; border: 1px solid rgba(201,184,150,0.35); }
-    .format-toggle button .icon-box { width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border: 1px solid currentColor; opacity: 0.7; }
-    .format-toggle button.active .icon-box { opacity: 1; border-color: #C9B896; }
-    .pkg-card { position: relative; border: 1px solid rgba(201,184,150,0.25); background: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, transparent 60%); transition: all 0.35s cubic-bezier(0.22,1,0.36,1); }
-    .pkg-card:hover { border-color: rgba(201,184,150,0.5); box-shadow: 0 12px 40px -16px rgba(201,184,150,0.18); transform: translateY(-2px); }
-    .pkg-card.popular { border-color: rgba(201,184,150,0.5); background: linear-gradient(180deg, rgba(201,184,150,0.08) 0%, rgba(201,184,150,0.02) 40%, transparent 100%); }
-    .pkg-card.popular::before { content: 'Most popular'; position: absolute; top: 0; right: 0; font-size: 0.65rem; font-weight: 600; letter-spacing: 0.2em; color: #C9B896; padding: 10px 16px; border-left: 1px solid rgba(201,184,150,0.4); border-bottom: 1px solid rgba(201,184,150,0.4); background: rgba(0,0,0,0.5); }
-    .pkg-price { font-family: 'Playfair Display', serif; font-size: 1.875rem; font-weight: 500; color: #C9B896; letter-spacing: 0.02em; }
+    .pricing-card { border: 1px solid rgba(201,184,150,0.2); border-radius: 14px; background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0)); overflow: hidden; }
+    .pricing-head { display: flex; align-items: center; gap: 10px; padding: 12px 16px; border-bottom: 1px solid rgba(201,184,150,0.16); background: rgba(255,255,255,0.02); }
+    .pricing-icon { width: 22px; height: 22px; border-radius: 6px; border: 1px solid rgba(201,184,150,0.35); display: flex; align-items: center; justify-content: center; color: #C9B896; }
+    .pricing-table { width: 100%; table-layout: fixed; border-collapse: collapse; font-size: 0.95rem; }
+    .pricing-table th { color: rgba(245,243,239,0.56); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; padding: 10px 12px; border-bottom: 1px solid rgba(255,255,255,0.08); vertical-align: bottom; }
+    .pricing-table td { padding: 10px 12px; border-bottom: 1px solid rgba(255,255,255,0.06); vertical-align: middle; }
+    .pricing-table th:first-child,
+    .pricing-table td:first-child { text-align: left; }
+    .pricing-table th:not(:first-child),
+    .pricing-table td:not(:first-child) { text-align: right; }
+    .pricing-table.pricing-cols-2 td:first-child { width: 46%; }
+    .pricing-table.pricing-cols-2 td:nth-child(2) { width: 54%; }
+    .pricing-table.pricing-cols-4 td:first-child { width: 28%; }
+    .pricing-table.pricing-cols-4 th:nth-child(2) { width: 24%; }
+    .pricing-table.pricing-cols-4 th:nth-child(3) { width: 24%; }
+    .pricing-table.pricing-cols-4 th:nth-child(4) { width: 24%; }
+    .pricing-table tr:last-child td { border-bottom: 0; }
+    .price-cell { display: flex; flex-direction: column; align-items: flex-end; justify-content: center; gap: 2px; }
+    .price-cell--stack { min-height: 2.5rem; }
+    .td-label .price-cell { align-items: flex-start; min-height: 0; }
+    .price-main { line-height: 1.3; }
+    .upfront-amount { font-size: 0.95rem; }
+    .pricing-note { color: rgba(245,243,239,0.6); font-size: 0.75rem; padding: 8px 12px 12px; border-top: 1px solid rgba(255,255,255,0.05); }
+    .finder-box { border: 1px solid rgba(201,184,150,0.22); border-radius: 14px; background: rgba(0,0,0,0.3); padding: 18px; }
+    .finder-grid { display: grid; gap: 12px; grid-template-columns: repeat(1, minmax(0, 1fr)); }
+    .finder-label { color: rgba(245,243,239,0.72); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 6px; }
+    .finder-select { width: 100%; background: rgba(255,255,255,0.03); border: 1px solid rgba(201,184,150,0.2); color: #F5F3EF; border-radius: 8px; padding: 10px 12px; font-size: 0.95rem; }
+    .finder-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+    .finder-btn { border: 1px solid rgba(201,184,150,0.45); color: #C9B896; padding: 10px 14px; border-radius: 8px; font-size: 0.88rem; font-weight: 500; }
+    .finder-btn:hover { background: rgba(201,184,150,0.12); }
+    .finder-btn.primary { background: rgba(201,184,150,0.12); }
+    .recommendation-copy { color: rgba(245,243,239,0.75); font-size: 0.88rem; margin-top: 10px; min-height: 1.3rem; }
+    .pricing-card.recommended { border-color: rgba(201,184,150,0.55); box-shadow: 0 10px 28px -18px rgba(201,184,150,0.45); }
+    .pricing-table tr.match-row td { background: rgba(201,184,150,0.07); }
+    .most-popular-badge { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #C9B896; border: 1px solid rgba(201,184,150,0.45); padding: 2px 8px; border-radius: 4px; white-space: nowrap; }
+    .pricing-table tr.most-popular td { background: rgba(201,184,150,0.04); }
+    @media (min-width: 768px) {
+      .finder-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
   </style>
   <link rel="stylesheet" href="assets/animations.css" />
 </head>
@@ -155,40 +182,191 @@
       <p class="text-champagne text-xs font-semibold tracking-[0.25em] uppercase mb-4" data-animate="fade-in-up" data-animate-delay="0">Membership</p>
       <h1 class="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-bone leading-tight tracking-tight mb-4" data-animate="fade-in-up" data-animate-delay="80">Join us</h1>
       <p class="text-bone/80 text-lg md:text-xl max-w-2xl mx-auto font-light" data-animate="fade-in-up" data-animate-delay="160">
-        Choose your format, then select a package. All in-person sessions at PureGym Spinningfields.
+        View our latest package pricing for PureGym Spinningfields.
       </p>
     </div>
   </section>
 
-  <!-- Packages -->
+  <!-- Pricing -->
   <section class="py-20 md:py-28 px-6 md:px-12 bg-black/40">
-    <div class="max-w-6xl mx-auto">
-      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-8 mb-16" data-animate="fade-in-up">
-        <div class="format-toggle">
-          <button type="button" id="btn-in-person" class="active">
-            <span class="icon-box flex items-center justify-center">
-              <i data-lucide="dumbbell" class="w-4 h-4" stroke-width="1.5"></i>
-            </span>
-            <span>In person</span>
-          </button>
-          <button type="button" id="btn-online">
-            <span class="icon-box flex items-center justify-center">
-              <i data-lucide="monitor" class="w-4 h-4" stroke-width="1.5"></i>
-            </span>
-            <span>Online</span>
-          </button>
+    <div class="max-w-6xl mx-auto space-y-5">
+      <div class="finder-box is-visible" data-animate="fade-in-up">
+        <h2 class="font-serif text-2xl text-bone mb-2">Find what suits you</h2>
+        <p class="text-bone/70 text-sm">Choose your preferences to see the most suitable option first.</p>
+        <div class="finder-grid mt-4">
+          <div>
+            <label for="train-with-select" class="finder-label">Solo or with a friend?</label>
+            <select id="train-with-select" class="finder-select">
+              <option value="any" selected>Not sure yet</option>
+              <option value="solo">On my own (solo)</option>
+              <option value="friend">With a friend (buddy sessions)</option>
+            </select>
+          </div>
+          <div>
+            <label for="goal-select" class="finder-label">Session style</label>
+            <select id="goal-select" class="finder-select">
+              <option value="not-sure">Not sure yet</option>
+              <option value="online-only">Online coaching only</option>
+              <option value="solo-plus-online">Solo sessions + online coaching (1hr)</option>
+              <option value="solo-only">Solo sessions only (1hr)</option>
+              <option value="buddy-plus-online">Buddy sessions + online coaching (1hr)</option>
+              <option value="thirty-min">30-min sessions only</option>
+            </select>
+          </div>
+          <div>
+            <label for="online-select" class="finder-label">Want online coaching included?</label>
+            <select id="online-select" class="finder-select">
+              <option value="flexible">Flexible</option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+          </div>
         </div>
-        <p class="text-bone/50 text-sm tracking-wide">
-          <span id="format-label">One-to-one coaching at PureGym Spinningfields</span>
-        </p>
+        <div class="finder-grid mt-3">
+          <div>
+            <label for="frequency-select" class="finder-label">Sessions per week</label>
+            <select id="frequency-select" class="finder-select">
+              <option value="any">Not sure yet</option>
+              <option value="1">1 session</option>
+              <option value="2">2 sessions</option>
+              <option value="3">3 sessions</option>
+            </select>
+          </div>
+        </div>
+        <div class="finder-actions">
+          <button id="find-suitable-btn" type="button" class="finder-btn primary">Find what suits you</button>
+          <button id="show-all-prices-btn" type="button" class="finder-btn">See all prices</button>
+        </div>
+        <p id="recommendation-copy" class="recommendation-copy"></p>
       </div>
 
-      <div id="in-person-packages" class="grid md:grid-cols-3 gap-8 md:gap-10">
-        <!-- Rendered from IN_PERSON_PACKAGES -->
-      </div>
+      <div id="pricing-results" class="space-y-5 hidden">
+      <article class="pricing-card" data-plan="online-only">
+        <div class="pricing-head">
+          <span class="pricing-icon"><i data-lucide="monitor" class="w-3.5 h-3.5" stroke-width="1.8"></i></span>
+          <h2 class="text-bone font-medium">Online coaching only</h2>
+        </div>
+        <table class="pricing-table pricing-cols-2">
+          <thead>
+            <tr><th>Commitment</th><th>Monthly</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1 month</td>
+              <td><div class="price-cell price-cell--stack"><span class="price-main">£130</span></div></td>
+            </tr>
+            <tr>
+              <td>3 months</td>
+              <td><div class="price-cell price-cell--stack"><span class="price-main">£120</span></div></td>
+            </tr>
+            <tr>
+              <td>6 months</td>
+              <td><div class="price-cell price-cell--stack"><span class="price-main">£110</span></div></td>
+            </tr>
+            <tr>
+              <td>12 months — Life transformation</td>
+              <td>
+                <div class="price-cell price-cell--stack" style="gap:4px">
+                  <span class="price-main">£85 <span class="text-bone/50 text-xs font-normal">(equiv. / month)</span></span>
+                  <span class="price-main upfront-amount">£1,020 paid once</span>
+                  <span class="text-bone/50 text-xs text-right max-w-[20rem] ml-auto leading-snug" style="color: rgba(245,243,239,0.55)">12 month online coaching · year paid in full upfront</span>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </article>
 
-      <div id="online-packages" class="hidden max-w-2xl mx-auto">
-        <!-- Rendered from ONLINE_PACKAGES -->
+      <article class="pricing-card" data-plan="solo-plus-online">
+        <div class="pricing-head">
+          <span class="pricing-icon"><i data-lucide="star" class="w-3.5 h-3.5" stroke-width="1.8"></i></span>
+          <h2 class="text-bone font-medium">Solo sessions + online coaching included (1hr)</h2>
+        </div>
+        <table class="pricing-table pricing-cols-4">
+          <thead>
+            <tr><th>Sessions/week</th><th>1 month</th><th>3 months</th><th>6 months</th></tr>
+          </thead>
+          <tbody>
+            <tr data-freq="1">
+              <td>1x /week</td>
+              <td><div class="price-cell price-cell--stack"><span class="price-main">£220</span></div></td>
+              <td><div class="price-cell price-cell--stack"><span class="price-main">£210</span></div></td>
+              <td><div class="price-cell price-cell--stack"><span class="price-main">£200</span></div></td>
+            </tr>
+            <tr data-freq="2" class="most-popular">
+              <td>
+                <div class="flex flex-col gap-1.5 sm:flex-row sm:items-center sm:gap-2 sm:flex-wrap min-h-[2.5rem]">
+                  <span>2x /week</span>
+                  <span class="most-popular-badge" aria-label="Most popular">Most popular</span>
+                </div>
+              </td>
+              <td><div class="price-cell price-cell--stack"><span class="price-main">£360</span></div></td>
+              <td><div class="price-cell price-cell--stack"><span class="price-main">£340</span></div></td>
+              <td><div class="price-cell price-cell--stack"><span class="price-main">£320</span></div></td>
+            </tr>
+            <tr data-freq="3">
+              <td>3x /week</td>
+              <td><div class="price-cell price-cell--stack"><span class="price-main">£480</span></div></td>
+              <td><div class="price-cell price-cell--stack"><span class="price-main">£460</span></div></td>
+              <td><div class="price-cell price-cell--stack"><span class="price-main">£430</span></div></td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="pricing-note">Anchor: £220 for 1x/wk · 2x/wk adds £140 (5% vol disc) · 3x/wk adds £120 more (10% vol disc)</p>
+      </article>
+
+      <article class="pricing-card" data-plan="solo-only">
+        <div class="pricing-head">
+          <span class="pricing-icon"><i data-lucide="user" class="w-3.5 h-3.5" stroke-width="1.8"></i></span>
+          <h2 class="text-bone font-medium">Solo sessions only - no online coaching (1hr)</h2>
+        </div>
+        <table class="pricing-table pricing-cols-2">
+          <thead>
+            <tr><th>Sessions/week</th><th>Per month</th></tr>
+          </thead>
+          <tbody>
+            <tr data-freq="1"><td>1x /week</td><td><div class="price-cell price-cell--stack"><span class="price-main">£160</span></div></td></tr>
+            <tr data-freq="2"><td>2x /week</td><td><div class="price-cell price-cell--stack"><span class="price-main">£300</span></div></td></tr>
+            <tr data-freq="3"><td>3x /week</td><td><div class="price-cell price-cell--stack"><span class="price-main">£400</span></div></td></tr>
+          </tbody>
+        </table>
+        <p class="pricing-note">Priced from the solo in-person format without online support.</p>
+      </article>
+
+      <article class="pricing-card" data-plan="buddy-plus-online">
+        <div class="pricing-head">
+          <span class="pricing-icon"><i data-lucide="users" class="w-3.5 h-3.5" stroke-width="1.8"></i></span>
+          <h2 class="text-bone font-medium">Buddy sessions + online coaching included (1hr, per person)</h2>
+        </div>
+        <table class="pricing-table pricing-cols-2">
+          <thead>
+            <tr><th>Sessions/week</th><th>Per month</th></tr>
+          </thead>
+          <tbody>
+            <tr data-freq="1"><td>1x /week</td><td><div class="price-cell price-cell--stack"><span class="price-main">£160</span></div></td></tr>
+            <tr data-freq="2"><td>2x /week</td><td><div class="price-cell price-cell--stack"><span class="price-main">£240</span></div></td></tr>
+            <tr data-freq="3"><td>3x /week</td><td><div class="price-cell price-cell--stack"><span class="price-main">£300</span></div></td></tr>
+          </tbody>
+        </table>
+        <p class="pricing-note">Per person. Buddy in-person rate with online support included for each participant.</p>
+      </article>
+
+      <article class="pricing-card" data-plan="thirty-min">
+        <div class="pricing-head">
+          <span class="pricing-icon"><i data-lucide="clock-3" class="w-3.5 h-3.5" stroke-width="1.8"></i></span>
+          <h2 class="text-bone font-medium">30-min sessions only - no online (2-3/week only)</h2>
+        </div>
+        <table class="pricing-table pricing-cols-2">
+          <thead>
+            <tr><th>Sessions/week</th><th>Per month</th></tr>
+          </thead>
+          <tbody>
+            <tr data-freq="2"><td>2x /week</td><td><div class="price-cell price-cell--stack"><span class="price-main">£140</span></div></td></tr>
+            <tr data-freq="3"><td>3x /week</td><td><div class="price-cell price-cell--stack"><span class="price-main">£190</span></div></td></tr>
+          </tbody>
+        </table>
+        <p class="pricing-note">30-minute solo format. Shorter blocks, no online add-on on this option.</p>
+      </article>
       </div>
     </div>
   </section>
@@ -208,69 +386,120 @@
 
   <script src="assets/animations.js"></script>
   <script>
-    const IN_PERSON_PACKAGES = [
-      { name: '1 Session per week', price: '£260', description: 'One dedicated 60-minute in-person coaching session per week, supported by our full Online Coaching suite for the remaining 167 hours. You receive a personalised programme, nutrition guidance, and regular check-ins to ensure consistent progress fits around your professional schedule. The structured entry point for busy professionals who want expert accountability without compromise.', url: 'https://buy.stripe.com/00w3cvd7x5XB1BS58Dew804' },
-      { name: '2 Sessions per week', price: '£450', description: 'Two focused 60-minute in-person coaching blocks per week, backed by our full Online Coaching suite between sessions. You receive a progressive training programme, nutrition guidance, monthly Body Composition Audits, and ongoing check-ins to keep results compounding. The most popular choice for professionals who want meaningful, measurable change without overhauling their week.', url: 'https://buy.stripe.com/8x2eVd9Vl99N94kbx1ew805', popular: true },
-      { name: '3 Sessions per week', price: '£540', description: 'The most comprehensive body transformation package available in Spinningfields. Three dedicated 60-minute in-person coaching blocks per week, supported by our full Online Coaching suite for the remaining 165 hours. You receive advanced programming, nutrition guidance, monthly Body Composition Audits, and priority communication to ensure your physique reflects your professional ambition. For those who are serious about results and want every variable managed.', url: 'https://buy.stripe.com/6oUcN51oP4TxfsI7gLew806' },
-    ];
+    const pricingResults = document.getElementById('pricing-results');
+    const recommendationCopy = document.getElementById('recommendation-copy');
+    const trainWithSelect = document.getElementById('train-with-select');
+    const goalSelect = document.getElementById('goal-select');
+    const onlineSelect = document.getElementById('online-select');
+    const frequencySelect = document.getElementById('frequency-select');
+    const findSuitableBtn = document.getElementById('find-suitable-btn');
+    const showAllPricesBtn = document.getElementById('show-all-prices-btn');
 
-    const ONLINE_PACKAGES = [
-      { name: 'Online Coaching', price: '£120', description: 'Expert coaching built around your life, not your location. You receive a fully personalised training programme, nutrition guidance, and regular check-ins, all managed remotely through our coaching platform. Designed for professionals who travel frequently, train independently, or want structured accountability without fixed session times. Every variable is managed so the only thing required from you is consistency.', url: 'https://buy.stripe.com/bJefZh6J9eu780gbx1ew807' },
-    ];
+    function getPricingCards() {
+      return Array.from(document.querySelectorAll('#pricing-results .pricing-card'));
+    }
 
-    function renderPackages(containerId, packages) {
-      const container = document.getElementById(containerId);
-      const isOnline = containerId === 'online-packages';
-      container.innerHTML = '';
-      container.className = isOnline ? 'hidden max-w-2xl mx-auto' : 'grid md:grid-cols-3 gap-8 md:gap-10';
-      packages.forEach((pkg, i) => {
-        const card = document.createElement('div');
-        card.className = 'pkg-card hover-card-glow p-8 md:p-10 flex flex-col' + (pkg.popular ? ' popular' : '');
-        card.setAttribute('data-animate', 'fade-in-up');
-        card.setAttribute('data-animate-delay', String(160 + i * 80));
-        card.innerHTML = `
-          <div class="w-12 h-12 flex items-center justify-center border border-champagne/40 text-champagne mb-6">
-            <i data-lucide="${isOnline ? 'globe' : 'user'}" class="w-6 h-6 hover-icon-pulse" stroke-width="1.5"></i>
-          </div>
-          <h3 class="font-serif text-xl md:text-2xl text-bone mb-3 pt-1">${pkg.name}</h3>
-          <p class="pkg-price mb-6">${pkg.price}</p>
-          <p class="text-bone/75 text-sm leading-relaxed mb-8 flex-1" style="line-height: 1.7;">${pkg.description}</p>
-          <a href="${pkg.url}" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2 w-full px-6 py-4 border border-champagne text-champagne font-medium hover:bg-champagne/15 hover-btn-lift transition-all duration-300 group">
-            <span>Select package</span>
-            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-0.5 transition-transform"></i>
-          </a>
-        `;
-        container.appendChild(card);
+    function clearPricingHighlights() {
+      getPricingCards().forEach((card) => {
+        card.classList.remove('recommended', 'hidden');
+        card.querySelectorAll('tr.match-row').forEach((row) => row.classList.remove('match-row'));
       });
-      if (typeof lucide !== 'undefined') lucide.createIcons();
     }
 
-    function setFormatActive(btn) {
-      document.querySelectorAll('.format-toggle button').forEach((b) => b.classList.remove('active'));
-      btn.classList.add('active');
+    function pickRecommendedPlan() {
+      if (!trainWithSelect || !goalSelect || !onlineSelect || !frequencySelect) {
+        return 'solo-plus-online';
+      }
+      const goal = goalSelect.value;
+      const trainWith = trainWithSelect.value;
+      const wantsOnline = onlineSelect.value;
+      const frequency = frequencySelect.value;
+
+      if (goal === 'online-only') return 'online-only';
+      if (goal === 'thirty-min') return 'thirty-min';
+      if (trainWith === 'friend') return 'buddy-plus-online';
+      if (goal === 'solo-only') return 'solo-only';
+      if (goal === 'solo-plus-online') return 'solo-plus-online';
+      if (goal === 'buddy-plus-online') return 'buddy-plus-online';
+
+      if (goal === 'not-sure') {
+        if (wantsOnline === 'yes') return 'solo-plus-online';
+        if (wantsOnline === 'no' && (frequency === '2' || frequency === '3')) return 'thirty-min';
+        if (wantsOnline === 'no') return 'solo-only';
+        if (trainWith === 'solo') {
+          if (frequency === '1') return 'solo-plus-online';
+          if (frequency === '2' || frequency === '3') return 'solo-only';
+        }
+        if (frequency === '1') return 'solo-plus-online';
+        if (frequency === '2' || frequency === '3') return 'solo-only';
+        return 'solo-plus-online';
+      }
+      return 'solo-plus-online';
     }
 
-    function showInPerson() {
-      setFormatActive(document.getElementById('btn-in-person'));
-      document.getElementById('in-person-packages').classList.remove('hidden');
-      document.getElementById('online-packages').classList.add('hidden');
-      document.getElementById('format-label').textContent = 'One-to-one coaching at PureGym Spinningfields';
+    function getPlanLabel(plan) {
+      const labels = {
+        'online-only': 'Online coaching only',
+        'solo-plus-online': 'Solo sessions + online coaching (1hr)',
+        'solo-only': 'Solo sessions only (1hr)',
+        'buddy-plus-online': 'Buddy sessions + online coaching (1hr)',
+        'thirty-min': '30-min sessions only',
+      };
+      return labels[plan] || 'Recommended package';
     }
 
-    function showOnline() {
-      setFormatActive(document.getElementById('btn-online'));
-      document.getElementById('in-person-packages').classList.add('hidden');
-      document.getElementById('online-packages').classList.remove('hidden');
-      document.getElementById('format-label').textContent = 'Remote coaching, wherever you are';
+    function showRecommendation() {
+      if (!pricingResults) return;
+      const frequency = frequencySelect ? frequencySelect.value : 'any';
+      const recommendedPlan = pickRecommendedPlan();
+      clearPricingHighlights();
+      pricingResults.classList.remove('hidden');
+      getPricingCards().forEach((card) => {
+        const isMatch = card.getAttribute('data-plan') === recommendedPlan;
+        if (!isMatch) card.classList.add('hidden');
+        if (isMatch) {
+          card.classList.add('recommended');
+          if (frequency !== 'any' && (recommendedPlan !== 'online-only')) {
+            const row = card.querySelector('tr[data-freq="' + frequency + '"]');
+            if (row) row.classList.add('match-row');
+          }
+          void card.offsetHeight;
+          try {
+            card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          } catch (e) {
+            card.scrollIntoView(true);
+          }
+        }
+      });
+
+      const note = 'Best fit: ' + getPlanLabel(recommendedPlan) + '. Use "See all prices" to compare every option.';
+      if (recommendationCopy) recommendationCopy.textContent = note;
       if (window.observeTriadAnimations) requestAnimationFrame(window.observeTriadAnimations);
     }
 
-    renderPackages('in-person-packages', IN_PERSON_PACKAGES);
-    renderPackages('online-packages', ONLINE_PACKAGES.length ? ONLINE_PACKAGES : []);
-    if (window.observeTriadAnimations) window.observeTriadAnimations();
+    function showAllPrices() {
+      if (!pricingResults) return;
+      clearPricingHighlights();
+      pricingResults.classList.remove('hidden');
+      if (recommendationCopy) recommendationCopy.textContent = 'Showing all pricing options.';
+      if (window.observeTriadAnimations) requestAnimationFrame(window.observeTriadAnimations);
+    }
 
-    document.getElementById('btn-in-person').addEventListener('click', showInPerson);
-    document.getElementById('btn-online').addEventListener('click', showOnline);
+    findSuitableBtn && findSuitableBtn.addEventListener('click', function () {
+      showRecommendation();
+    });
+    showAllPricesBtn && showAllPricesBtn.addEventListener('click', function () {
+      showAllPrices();
+    });
+
+    [trainWithSelect, goalSelect, onlineSelect, frequencySelect].forEach(function (el) {
+      if (!el) return;
+      el.addEventListener('change', function () {
+        showRecommendation();
+      });
+    });
+
+    if (window.observeTriadAnimations) window.observeTriadAnimations();
 
     const header = document.getElementById('header');
     if (typeof lucide !== 'undefined') lucide.createIcons();
