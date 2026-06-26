@@ -1,7 +1,20 @@
-# Netlify config for TRIAD PERFORMANCE (static site + form API)
+# Netlify config for TRIAD PERFORMANCE (single landing page: social.html)
 [build]
   publish = "public"
   command = "npm run build"
 
 [functions]
   directory = "netlify/functions"
+
+# Serve social.html at the root without changing the URL.
+[[redirects]]
+  from = "/"
+  to = "/social.html"
+  status = 200
+
+# Funnel any other path (old pages, mistyped URLs) to the one page.
+# Existing static files (social.html, favicon.png, /assets/*) still serve directly.
+[[redirects]]
+  from = "/*"
+  to = "/social.html"
+  status = 301

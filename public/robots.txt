@@ -1,6 +1,3 @@
 User-agent: *
 Allow: /
-Disallow: /thank-you.html
-Disallow: /join-us.html
-Disallow: /questionnaire.html
 Sitemap: https://triad.fitness/sitemap.xml

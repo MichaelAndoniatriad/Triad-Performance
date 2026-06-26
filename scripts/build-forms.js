@@ -1,14 +1,3 @@
-const fs = require('fs');
-const path = require('path');
-
-const pairs = [
-  ['public/questionnaire.template.html', 'public/questionnaire.html'],
-  ['public/enquire.template.html', 'public/enquire.html'],
-];
-
-pairs.forEach(([fromRel, toRel]) => {
-  const from = path.join(__dirname, '..', fromRel);
-  const to = path.join(__dirname, '..', toRel);
-  fs.copyFileSync(from, to);
-  console.log(`Built ${toRel}`);
-});
+// The site is now a single landing page (social.html) with no built forms.
+// Nothing to generate — kept so `npm run build` stays a valid no-op for Netlify.
+console.log('No forms to build — social.html is the only page.');
