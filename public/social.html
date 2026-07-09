@@ -11,6 +11,23 @@
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "vh9yezxvrj");
   </script>
+  <!-- Meta Pixel (dataset "Triad Website" 4237814756509579). Booking conversion
+       ("Schedule") is fired from the Cal.com embed's bookingSuccessful event below. -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '4237814756509579');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=4237814756509579&ev=PageView&noscript=1" alt="" /></noscript>
+  <!-- End Meta Pixel -->
   <meta name="google-site-verification" content="d8WlK51CojFUaU8riIZrYsK4n8nbq6s0EOLgcM6KGGQ" />
   <title>Book a free consultation</title>
   <meta name="description" content="Book a free consultation. Coaching for professionals who want results that fit around real life." />
@@ -243,6 +260,19 @@
           calLink: "coachmichael/consultation",
         });
         Cal.ns.consultation("ui", {"theme":"light","hideEventTypeDetails":false,"layout":"month_view"});
+
+        // Fire a Meta "Schedule" conversion when a consultation is booked.
+        // The booking completes inside the Cal.com iframe, so we listen for Cal's
+        // booking event and fire the pixel on the parent page. Guarded so registering
+        // both the current and legacy event names can't double-count one booking.
+        var triadBookingTracked = false;
+        function triadTrackSchedule() {
+          if (triadBookingTracked) return;
+          triadBookingTracked = true;
+          if (window.fbq) { fbq('track', 'Schedule'); }
+        }
+        Cal.ns.consultation("on", { action: "bookingSuccessfulV2", callback: triadTrackSchedule });
+        Cal.ns.consultation("on", { action: "bookingSuccessful", callback: triadTrackSchedule });
       </script>
       <!-- Cal.com embed end -->
     </div>
