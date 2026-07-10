@@ -123,12 +123,13 @@
     <header class="mb-8 text-center sm:mb-10">
       <div class="mx-auto mb-5 h-32 w-32 overflow-hidden rounded-full border border-gray-200/90 bg-gray-100 shadow-md ring-4 ring-white sm:mb-6 sm:h-40 sm:w-40">
         <img
-          src="assets/profile-social.png"
+          src="assets/profile-social.jpg"
           alt="Michael Andonia"
           class="social-profile-photo"
           width="160"
           height="160"
           loading="eager"
+          fetchpriority="high"
           decoding="async"
         />
       </div>
@@ -155,10 +156,15 @@
         Real clients, real progress · shared with permission
       </p>
       <figure class="overflow-hidden rounded-2xl border border-gray-200/80 bg-white p-2 shadow-sm shadow-gray-200/50 sm:p-2.5">
+        <!-- JPEG, not the PNG: same 1080px collage at ~316KB instead of ~1.3MB.
+             assets/transformations.png is kept because og:image points at it and
+             Meta has already ingested that file for the live ad creative. -->
         <img
-          src="assets/transformations.png"
+          src="assets/transformations.jpg"
           alt="Before-and-after transformation photos of Triad Performance coaching clients"
           class="block w-full rounded-xl"
+          width="1080"
+          height="1080"
           loading="lazy"
           decoding="async"
         />
