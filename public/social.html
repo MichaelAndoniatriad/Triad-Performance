@@ -70,37 +70,6 @@
   <style>
     html { scroll-behavior: smooth; }
     body { font-family: 'Manrope', system-ui, sans-serif; }
-    .reviews-marquee-bleed {
-      position: relative;
-      left: 50%;
-      width: 100vw;
-      transform: translateX(-50%);
-    }
-    @keyframes reviews-marquee-scroll {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-    .reviews-marquee-track {
-      display: flex;
-      width: max-content;
-      gap: 0.75rem;
-      animation: reviews-marquee-scroll 90s linear infinite;
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .reviews-marquee-track { animation: none; }
-    }
-    /* Show exactly 3 tiles (+ gaps between them); fourth scrolls in from the side */
-    .reviews-marquee-viewport {
-      width: min(100%, calc(3 * 11.1rem + 2 * 0.75rem));
-      margin-left: auto;
-      margin-right: auto;
-      overflow: hidden;
-    }
-    @media (min-width: 640px) {
-      .reviews-marquee-viewport {
-        width: min(100%, calc(3 * 12rem + 2 * 0.75rem));
-      }
-    }
     .review-tile-stars {
       font-size: 0.66rem;
       letter-spacing: 0.06em;
@@ -119,9 +88,11 @@
   </style>
 </head>
 <body class="min-h-screen overflow-x-hidden bg-[#fafafa] text-gray-900 antialiased">
-  <main class="mx-auto max-w-3xl px-5 py-14 sm:py-20 sm:px-8">
+  <main class="mx-auto max-w-3xl px-5 py-10 sm:py-20 sm:px-8">
     <header class="mb-8 text-center sm:mb-10">
-      <div class="mx-auto mb-5 h-32 w-32 overflow-hidden rounded-full border border-gray-200/90 bg-gray-100 shadow-md ring-4 ring-white sm:mb-6 sm:h-40 sm:w-40">
+      <!-- Photo kept (real-person portraits earn attention) but sized so the
+           headline and CTA render inside the first mobile screenful. -->
+      <div class="mx-auto mb-4 h-24 w-24 overflow-hidden rounded-full border border-gray-200/90 bg-gray-100 shadow-md ring-4 ring-white sm:mb-6 sm:h-36 sm:w-36">
         <img
           src="assets/profile-social.jpg"
           alt="Michael Andonia"
@@ -134,7 +105,7 @@
         />
       </div>
       <h1 class="text-[1.65rem] leading-snug tracking-tight sm:text-3xl sm:leading-tight">
-        <span class="block font-semibold text-gray-900">Coaching for busy professionals who want results that survive real life.</span>
+        <span class="block font-semibold text-gray-900">Busy professional? Coaching that survives your real life.</span>
         <span class="mt-2 block text-base font-medium text-gray-500 sm:text-lg">Anyone can get you fit for summer. I'll get you fit for life.</span>
       </h1>
       <p class="mx-auto mt-5 max-w-xl text-center text-sm leading-relaxed text-gray-600 sm:mt-6 sm:text-base">
@@ -179,81 +150,50 @@
       </div>
     </section>
 
-    <section class="reviews-marquee-bleed mb-10 overflow-hidden border-y border-gray-200/60 bg-white/70 py-6 sm:mb-12 sm:py-8" aria-label="Client reviews">
-      <h2 class="mb-4 text-center text-base font-semibold tracking-tight text-gray-900 sm:text-lg">
+    <!-- Static review tiles (was an auto-scrolling marquee: NN/g eye-tracking shows
+         self-moving content reads as an ad and gets skipped, and auto-forwarding is
+         explicitly contraindicated on mobile). -->
+    <section class="mb-10 sm:mb-12" aria-label="Client reviews">
+      <h2 class="mb-1.5 text-center text-base font-semibold tracking-tight text-gray-900 sm:text-lg">
         What clients say
       </h2>
-      <p class="mb-5 text-center text-[0.65rem] text-gray-500">
+      <p class="mb-5 text-center text-[0.65rem] text-gray-500 sm:mb-6">
         Five-star reviews from Google · shared with permission
       </p>
-      <div class="overflow-hidden px-1">
-        <div class="reviews-marquee-viewport">
-        <div class="reviews-marquee-track" role="list">
-          <!-- duplicate set for seamless loop -->
-          <figure class="review-tile flex h-[11.1rem] w-[11.1rem] flex-shrink-0 flex-col rounded-md border border-gray-200/90 bg-white p-3 shadow-sm sm:h-48 sm:w-48 sm:p-3.5" role="listitem">
-            <div class="review-tile-stars mb-1.5 shrink-0" aria-hidden="true">★★★★★</div>
-            <blockquote class="min-h-0 flex-1 overflow-hidden text-[0.78rem] leading-snug text-gray-600 sm:text-[0.84rem]">
-              <p class="line-clamp-[9] sm:line-clamp-[11]">Michael has been so helpful getting me back into the gym and conscious of my wellbeing. Online sessions weekly — feedback on training, form, nutrition and water. A top guy: fair, understands life outside the gym, firm when it counts. Would 100% recommend.</p>
-            </blockquote>
-            <figcaption class="mt-1.5 shrink-0 truncate border-t border-gray-100 pt-1.5 text-[0.72rem] font-semibold text-gray-900 sm:text-[0.75rem]">Chloe Cassidy</figcaption>
-          </figure>
-          <figure class="review-tile flex h-[11.1rem] w-[11.1rem] flex-shrink-0 flex-col rounded-md border border-gray-200/90 bg-white p-3 shadow-sm sm:h-48 sm:w-48 sm:p-3.5" role="listitem">
-            <div class="review-tile-stars mb-1.5 shrink-0" aria-hidden="true">★★★★★</div>
-            <blockquote class="min-h-0 flex-1 overflow-hidden text-[0.78rem] leading-snug text-gray-600 sm:text-[0.84rem]">
-              <p class="line-clamp-[9] sm:line-clamp-[11]">Very professional, enjoying his plan and diet. Always willing to help and goes above and beyond.</p>
-            </blockquote>
-            <figcaption class="mt-1.5 shrink-0 truncate border-t border-gray-100 pt-1.5 text-[0.72rem] font-semibold text-gray-900 sm:text-[0.75rem]">Toqir Qureshi</figcaption>
-          </figure>
-          <figure class="review-tile flex h-[11.1rem] w-[11.1rem] flex-shrink-0 flex-col rounded-md border border-gray-200/90 bg-white p-3 shadow-sm sm:h-48 sm:w-48 sm:p-3.5" role="listitem">
-            <div class="review-tile-stars mb-1.5 shrink-0" aria-hidden="true">★★★★★</div>
-            <blockquote class="min-h-0 flex-1 overflow-hidden text-[0.78rem] leading-snug text-gray-600 sm:text-[0.84rem]">
-              <p class="line-clamp-[9] sm:line-clamp-[11]">Could not recommend Michael enough. Energy and knowledge keep you motivated. New passion for weightlifting. Holistic approach: fitness, eating habits, sleep — feel better overall. Absolute superstar.</p>
-            </blockquote>
-            <figcaption class="mt-1.5 shrink-0 truncate border-t border-gray-100 pt-1.5 text-[0.72rem] font-semibold text-gray-900 sm:text-[0.75rem]">Aron Dreczewski</figcaption>
-          </figure>
-          <figure class="review-tile flex h-[11.1rem] w-[11.1rem] flex-shrink-0 flex-col rounded-md border border-gray-200/90 bg-white p-3 shadow-sm sm:h-48 sm:w-48 sm:p-3.5" role="listitem">
-            <div class="review-tile-stars mb-1.5 shrink-0" aria-hidden="true">★★★★★</div>
-            <blockquote class="min-h-0 flex-1 overflow-hidden text-[0.78rem] leading-snug text-gray-600 sm:text-[0.84rem]">
-              <p class="line-clamp-[9] sm:line-clamp-[11]">Very good and knowledgeable. What makes him special is the personal touch and being available beyond contracted hours.</p>
-            </blockquote>
-            <figcaption class="mt-1.5 shrink-0 truncate border-t border-gray-100 pt-1.5 text-[0.72rem] font-semibold text-gray-900 sm:text-[0.75rem]">M Y Fekete</figcaption>
-          </figure>
-          <figure class="review-tile flex h-[11.1rem] w-[11.1rem] flex-shrink-0 flex-col rounded-md border border-gray-200/90 bg-white p-3 shadow-sm sm:h-48 sm:w-48 sm:p-3.5" role="listitem">
-            <div class="review-tile-stars mb-1.5 shrink-0" aria-hidden="true">★★★★★</div>
-            <blockquote class="min-h-0 flex-1 overflow-hidden text-[0.78rem] leading-snug text-gray-600 sm:text-[0.84rem]">
-              <p class="line-clamp-[9] sm:line-clamp-[11]">Michael has been so helpful getting me back into the gym and conscious of my wellbeing. Online sessions weekly — feedback on training, form, nutrition and water. A top guy: fair, understands life outside the gym, firm when it counts. Would 100% recommend.</p>
-            </blockquote>
-            <figcaption class="mt-1.5 shrink-0 truncate border-t border-gray-100 pt-1.5 text-[0.72rem] font-semibold text-gray-900 sm:text-[0.75rem]">Chloe Cassidy</figcaption>
-          </figure>
-          <figure class="review-tile flex h-[11.1rem] w-[11.1rem] flex-shrink-0 flex-col rounded-md border border-gray-200/90 bg-white p-3 shadow-sm sm:h-48 sm:w-48 sm:p-3.5" role="listitem">
-            <div class="review-tile-stars mb-1.5 shrink-0" aria-hidden="true">★★★★★</div>
-            <blockquote class="min-h-0 flex-1 overflow-hidden text-[0.78rem] leading-snug text-gray-600 sm:text-[0.84rem]">
-              <p class="line-clamp-[9] sm:line-clamp-[11]">Very professional, enjoying his plan and diet. Always willing to help and goes above and beyond.</p>
-            </blockquote>
-            <figcaption class="mt-1.5 shrink-0 truncate border-t border-gray-100 pt-1.5 text-[0.72rem] font-semibold text-gray-900 sm:text-[0.75rem]">Toqir Qureshi</figcaption>
-          </figure>
-          <figure class="review-tile flex h-[11.1rem] w-[11.1rem] flex-shrink-0 flex-col rounded-md border border-gray-200/90 bg-white p-3 shadow-sm sm:h-48 sm:w-48 sm:p-3.5" role="listitem">
-            <div class="review-tile-stars mb-1.5 shrink-0" aria-hidden="true">★★★★★</div>
-            <blockquote class="min-h-0 flex-1 overflow-hidden text-[0.78rem] leading-snug text-gray-600 sm:text-[0.84rem]">
-              <p class="line-clamp-[9] sm:line-clamp-[11]">Could not recommend Michael enough. Energy and knowledge keep you motivated. New passion for weightlifting. Holistic approach: fitness, eating habits, sleep — feel better overall. Absolute superstar.</p>
-            </blockquote>
-            <figcaption class="mt-1.5 shrink-0 truncate border-t border-gray-100 pt-1.5 text-[0.72rem] font-semibold text-gray-900 sm:text-[0.75rem]">Aron Dreczewski</figcaption>
-          </figure>
-          <figure class="review-tile flex h-[11.1rem] w-[11.1rem] flex-shrink-0 flex-col rounded-md border border-gray-200/90 bg-white p-3 shadow-sm sm:h-48 sm:w-48 sm:p-3.5" role="listitem">
-            <div class="review-tile-stars mb-1.5 shrink-0" aria-hidden="true">★★★★★</div>
-            <blockquote class="min-h-0 flex-1 overflow-hidden text-[0.78rem] leading-snug text-gray-600 sm:text-[0.84rem]">
-              <p class="line-clamp-[9] sm:line-clamp-[11]">Very good and knowledgeable. What makes him special is the personal touch and being available beyond contracted hours.</p>
-            </blockquote>
-            <figcaption class="mt-1.5 shrink-0 truncate border-t border-gray-100 pt-1.5 text-[0.72rem] font-semibold text-gray-900 sm:text-[0.75rem]">M Y Fekete</figcaption>
-          </figure>
-        </div>
-        </div>
+      <div class="grid gap-3 sm:grid-cols-3" role="list">
+        <figure class="flex flex-col rounded-md border border-gray-200/90 bg-white p-3.5 shadow-sm" role="listitem">
+          <div class="review-tile-stars mb-1.5 shrink-0" aria-hidden="true">★★★★★</div>
+          <blockquote class="flex-1 text-[0.8rem] leading-snug text-gray-600 sm:text-[0.84rem]">
+            <p>Michael has been so helpful getting me back into the gym and conscious of my wellbeing. Online sessions weekly — feedback on training, form, nutrition and water. A top guy: fair, understands life outside the gym, firm when it counts. Would 100% recommend.</p>
+          </blockquote>
+          <figcaption class="mt-2 shrink-0 border-t border-gray-100 pt-1.5 text-[0.72rem] font-semibold text-gray-900 sm:text-[0.75rem]">Chloe Cassidy</figcaption>
+        </figure>
+        <figure class="flex flex-col rounded-md border border-gray-200/90 bg-white p-3.5 shadow-sm" role="listitem">
+          <div class="review-tile-stars mb-1.5 shrink-0" aria-hidden="true">★★★★★</div>
+          <blockquote class="flex-1 text-[0.8rem] leading-snug text-gray-600 sm:text-[0.84rem]">
+            <p>Could not recommend Michael enough. Energy and knowledge keep you motivated. New passion for weightlifting. Holistic approach: fitness, eating habits, sleep — feel better overall. Absolute superstar.</p>
+          </blockquote>
+          <figcaption class="mt-2 shrink-0 border-t border-gray-100 pt-1.5 text-[0.72rem] font-semibold text-gray-900 sm:text-[0.75rem]">Aron Dreczewski</figcaption>
+        </figure>
+        <figure class="flex flex-col rounded-md border border-gray-200/90 bg-white p-3.5 shadow-sm" role="listitem">
+          <div class="review-tile-stars mb-1.5 shrink-0" aria-hidden="true">★★★★★</div>
+          <blockquote class="flex-1 text-[0.8rem] leading-snug text-gray-600 sm:text-[0.84rem]">
+            <p>Very good and knowledgeable. What makes him special is the personal touch and being available beyond contracted hours.</p>
+          </blockquote>
+          <figcaption class="mt-2 shrink-0 border-t border-gray-100 pt-1.5 text-[0.72rem] font-semibold text-gray-900 sm:text-[0.75rem]">M Y Fekete</figcaption>
+        </figure>
       </div>
     </section>
 
     <h2 class="mb-2 text-center text-lg font-semibold tracking-tight text-gray-900 sm:text-xl">
       Book your free assessment
     </h2>
+    <!-- Proof at the point of decision: testimonial/rating adjacent to the CTA
+         outperforms proof stranded in a distant section. -->
+    <p class="mb-2 text-center text-[0.8rem]">
+      <span class="review-tile-stars" aria-hidden="true">★★★★★</span>
+      <span class="ml-1.5 align-[0.05em] text-gray-600">Rated 5.0 by clients on Google</span>
+    </p>
     <p class="mx-auto mb-4 max-w-md text-center text-sm leading-relaxed text-gray-600 sm:text-base">
       Pick a time below — a relaxed chat about your goals, no pressure and no obligation.
     </p>
