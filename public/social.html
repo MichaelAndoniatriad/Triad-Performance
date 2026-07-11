@@ -286,11 +286,18 @@
         // The booking completes inside the Cal.com iframe, so we listen for Cal's
         // booking event and fire the pixel on the parent page. Guarded so registering
         // both the current and legacy event names can't double-count one booking.
+        // The Cal booking uid is passed as eventID: the server-side webhook
+        // (cal-webhook.mjs) sends the same Schedule event with event_id = uid,
+        // so Meta deduplicates when both the browser and the server report it.
         var triadBookingTracked = false;
-        function triadTrackSchedule() {
+        function triadTrackSchedule(e) {
           if (triadBookingTracked) return;
           triadBookingTracked = true;
-          if (window.fbq) { fbq('track', 'Schedule'); }
+          if (!window.fbq) return;
+          var d = e && e.detail && e.detail.data;
+          var uid = d && (d.uid || (d.booking && d.booking.uid));
+          if (uid) { fbq('track', 'Schedule', {}, { eventID: uid }); }
+          else { fbq('track', 'Schedule'); }
         }
         Cal.ns.consultation("on", { action: "bookingSuccessfulV2", callback: triadTrackSchedule });
         Cal.ns.consultation("on", { action: "bookingSuccessful", callback: triadTrackSchedule });
