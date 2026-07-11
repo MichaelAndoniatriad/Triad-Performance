@@ -25,6 +25,8 @@ import { neon } from '@neondatabase/serverless';
 //   CAL_WEBHOOK_SECRET  – shared secret for signature verification
 //   NETLIFY_DATABASE_URL / DATABASE_URL – Neon (optional; mirror skipped if unset)
 
+// v2 — bumped to force a fresh function bundle: Netlify reused a cached build
+// that predated META_CAPI_TOKEN / CAL_WEBHOOK_SECRET and so ran without them.
 const PIXEL_ID = process.env.META_PIXEL_ID || '4237814756509579';
 const PAGE_URL = 'https://triad.fitness/social.html';
 
