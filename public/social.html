@@ -106,7 +106,7 @@
   </style>
 </head>
 <body class="min-h-screen overflow-x-hidden bg-[#fafafa] text-gray-900 antialiased">
-  <main class="mx-auto max-w-3xl px-5 py-10 sm:py-20 sm:px-8">
+  <main class="mx-auto max-w-3xl px-5 pt-10 pb-28 sm:px-8 sm:pt-20 sm:pb-32">
     <header class="mb-8 text-center sm:mb-10">
       <!-- Photo kept (real-person portraits earn attention) but sized so the
            headline and CTA render inside the first mobile screenful. -->
@@ -166,41 +166,6 @@
         >
           Book your free assessment
         </a>
-      </div>
-    </section>
-
-    <!-- Static review tiles (was an auto-scrolling marquee: NN/g eye-tracking shows
-         self-moving content reads as an ad and gets skipped, and auto-forwarding is
-         explicitly contraindicated on mobile). -->
-    <section class="mb-10 sm:mb-12" aria-label="Client reviews">
-      <h2 class="mb-1.5 text-center text-base font-semibold tracking-tight text-gray-900 sm:text-lg">
-        What clients say
-      </h2>
-      <p class="mb-5 text-center text-[0.65rem] text-gray-500 sm:mb-6">
-        Five-star reviews from Google · shared with permission
-      </p>
-      <div class="grid gap-3 sm:grid-cols-3" role="list">
-        <figure class="flex flex-col rounded-md border border-gray-200/90 bg-white p-3.5 shadow-sm" role="listitem">
-          <div class="review-tile-stars mb-1.5 shrink-0" aria-hidden="true">★★★★★</div>
-          <blockquote class="flex-1 text-[0.8rem] leading-snug text-gray-600 sm:text-[0.84rem]">
-            <p>Michael has been so helpful getting me back into the gym and conscious of my wellbeing. Online sessions weekly — feedback on training, form, nutrition and water. A top guy: fair, understands life outside the gym, firm when it counts. Would 100% recommend.</p>
-          </blockquote>
-          <figcaption class="mt-2 shrink-0 border-t border-gray-100 pt-1.5 text-[0.72rem] font-semibold text-gray-900 sm:text-[0.75rem]">Chloe Cassidy</figcaption>
-        </figure>
-        <figure class="flex flex-col rounded-md border border-gray-200/90 bg-white p-3.5 shadow-sm" role="listitem">
-          <div class="review-tile-stars mb-1.5 shrink-0" aria-hidden="true">★★★★★</div>
-          <blockquote class="flex-1 text-[0.8rem] leading-snug text-gray-600 sm:text-[0.84rem]">
-            <p>Could not recommend Michael enough. Energy and knowledge keep you motivated. New passion for weightlifting. Holistic approach: fitness, eating habits, sleep — feel better overall. Absolute superstar.</p>
-          </blockquote>
-          <figcaption class="mt-2 shrink-0 border-t border-gray-100 pt-1.5 text-[0.72rem] font-semibold text-gray-900 sm:text-[0.75rem]">Aron Dreczewski</figcaption>
-        </figure>
-        <figure class="flex flex-col rounded-md border border-gray-200/90 bg-white p-3.5 shadow-sm" role="listitem">
-          <div class="review-tile-stars mb-1.5 shrink-0" aria-hidden="true">★★★★★</div>
-          <blockquote class="flex-1 text-[0.8rem] leading-snug text-gray-600 sm:text-[0.84rem]">
-            <p>Very good and knowledgeable. What makes him special is the personal touch and being available beyond contracted hours.</p>
-          </blockquote>
-          <figcaption class="mt-2 shrink-0 border-t border-gray-100 pt-1.5 text-[0.72rem] font-semibold text-gray-900 sm:text-[0.75rem]">M Y Fekete</figcaption>
-        </figure>
       </div>
     </section>
 
@@ -264,6 +229,40 @@
       <!-- Cal.com embed end -->
     </div>
 
+    <!-- Reviews now sit BELOW the calendar (booking moved above reviews) as
+         reassurance for anyone who scrolls past without booking. -->
+    <section class="mt-10 sm:mt-12" aria-label="Client reviews">
+      <h2 class="mb-1.5 text-center text-base font-semibold tracking-tight text-gray-900 sm:text-lg">
+        What clients say
+      </h2>
+      <p class="mb-5 text-center text-[0.65rem] text-gray-500 sm:mb-6">
+        Five-star reviews from Google · shared with permission
+      </p>
+      <div class="grid gap-3 sm:grid-cols-3" role="list">
+        <figure class="flex flex-col rounded-md border border-gray-200/90 bg-white p-3.5 shadow-sm" role="listitem">
+          <div class="review-tile-stars mb-1.5 shrink-0" aria-hidden="true">★★★★★</div>
+          <blockquote class="flex-1 text-[0.8rem] leading-snug text-gray-600 sm:text-[0.84rem]">
+            <p>Michael has been so helpful getting me back into the gym and conscious of my wellbeing. Online sessions weekly — feedback on training, form, nutrition and water. A top guy: fair, understands life outside the gym, firm when it counts. Would 100% recommend.</p>
+          </blockquote>
+          <figcaption class="mt-2 shrink-0 border-t border-gray-100 pt-1.5 text-[0.72rem] font-semibold text-gray-900 sm:text-[0.75rem]">Chloe Cassidy</figcaption>
+        </figure>
+        <figure class="flex flex-col rounded-md border border-gray-200/90 bg-white p-3.5 shadow-sm" role="listitem">
+          <div class="review-tile-stars mb-1.5 shrink-0" aria-hidden="true">★★★★★</div>
+          <blockquote class="flex-1 text-[0.8rem] leading-snug text-gray-600 sm:text-[0.84rem]">
+            <p>Could not recommend Michael enough. Energy and knowledge keep you motivated. New passion for weightlifting. Holistic approach: fitness, eating habits, sleep — feel better overall. Absolute superstar.</p>
+          </blockquote>
+          <figcaption class="mt-2 shrink-0 border-t border-gray-100 pt-1.5 text-[0.72rem] font-semibold text-gray-900 sm:text-[0.75rem]">Aron Dreczewski</figcaption>
+        </figure>
+        <figure class="flex flex-col rounded-md border border-gray-200/90 bg-white p-3.5 shadow-sm" role="listitem">
+          <div class="review-tile-stars mb-1.5 shrink-0" aria-hidden="true">★★★★★</div>
+          <blockquote class="flex-1 text-[0.8rem] leading-snug text-gray-600 sm:text-[0.84rem]">
+            <p>Very good and knowledgeable. What makes him special is the personal touch and being available beyond contracted hours.</p>
+          </blockquote>
+          <figcaption class="mt-2 shrink-0 border-t border-gray-100 pt-1.5 text-[0.72rem] font-semibold text-gray-900 sm:text-[0.75rem]">M Y Fekete</figcaption>
+        </figure>
+      </div>
+    </section>
+
     <footer id="site-footer" class="mt-10 border-t border-gray-200/70 pt-7 text-center sm:mt-12">
       <p class="text-sm font-semibold tracking-tight text-gray-900">Get in touch</p>
       <p class="mt-2.5 text-sm text-gray-600 sm:text-base">
@@ -276,7 +275,7 @@
   </main>
 
   <!-- Floating sticky booking CTA (shown by assets/floating-cta script) -->
-  <div id="floating-cta" class="pointer-events-none fixed inset-x-0 bottom-0 z-50">
+  <div id="floating-cta" class="is-visible pointer-events-none fixed inset-x-0 bottom-0 z-50">
     <div class="bg-gradient-to-t from-[#fafafa] via-[#fafafa]/85 to-transparent px-4 pt-8 pb-[max(0.85rem,env(safe-area-inset-bottom))]">
       <a
         href="#booking"
@@ -291,28 +290,16 @@
     (function () {
       var cta = document.getElementById('floating-cta');
       if (!cta) return;
-      // Hide the floating CTA whenever any of these are on screen (so it never
-      // covers the calendar or footer, and stays out of the way up top).
-      var zones = ['booking', 'site-footer']
-        .map(function (id) { return document.getElementById(id); })
-        .filter(Boolean);
-      var onScreen = new Set();
+      // Visible everywhere by default (from the very top of the page).
+      cta.classList.add('is-visible');
+      // Single exception: step aside while the calendar itself is on screen so
+      // the button never sits on top of Cal.com's own booking controls.
+      var booking = document.getElementById('booking');
+      if (!booking || !('IntersectionObserver' in window)) return;
       var io = new IntersectionObserver(function (entries) {
-        entries.forEach(function (e) {
-          if (e.isIntersecting) onScreen.add(e.target);
-          else onScreen.delete(e.target);
-        });
-        update();
+        cta.classList.toggle('is-visible', !entries[0].isIntersecting);
       }, { threshold: 0 });
-      zones.forEach(function (z) { io.observe(z); });
-
-      function update() {
-        var scrolledPastHero = window.scrollY > window.innerHeight * 0.5;
-        cta.classList.toggle('is-visible', scrolledPastHero && onScreen.size === 0);
-      }
-      window.addEventListener('scroll', update, { passive: true });
-      window.addEventListener('resize', update, { passive: true });
-      update();
+      io.observe(booking);
     })();
   </script>
 </body>
