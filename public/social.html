@@ -70,6 +70,24 @@
   <style>
     html { scroll-behavior: smooth; }
     body { font-family: 'Manrope', system-ui, sans-serif; }
+    /* Floating sticky booking CTA: revealed after the header scrolls away,
+       hidden again whenever the calendar or footer is on screen so it never
+       covers them. */
+    #floating-cta {
+      opacity: 0;
+      transform: translateY(0.6rem);
+      transition: opacity 0.28s ease, transform 0.28s ease;
+    }
+    #floating-cta.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    #floating-cta:not(.is-visible) a {
+      pointer-events: none;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      #floating-cta { transition: opacity 0.28s ease; transform: none; }
+    }
     .review-tile-stars {
       font-size: 0.66rem;
       letter-spacing: 0.06em;
@@ -246,7 +264,7 @@
       <!-- Cal.com embed end -->
     </div>
 
-    <footer class="mt-10 border-t border-gray-200/70 pt-7 text-center sm:mt-12">
+    <footer id="site-footer" class="mt-10 border-t border-gray-200/70 pt-7 text-center sm:mt-12">
       <p class="text-sm font-semibold tracking-tight text-gray-900">Get in touch</p>
       <p class="mt-2.5 text-sm text-gray-600 sm:text-base">
         <a href="tel:+447440370561" class="font-medium text-gray-700 transition-colors hover:text-blue-700">07440 370561</a>
@@ -256,5 +274,46 @@
       <p class="mt-4 text-[0.72rem] text-gray-400">Coach Michael Andonia · Manchester</p>
     </footer>
   </main>
+
+  <!-- Floating sticky booking CTA (shown by assets/floating-cta script) -->
+  <div id="floating-cta" class="pointer-events-none fixed inset-x-0 bottom-0 z-50">
+    <div class="bg-gradient-to-t from-[#fafafa] via-[#fafafa]/85 to-transparent px-4 pt-8 pb-[max(0.85rem,env(safe-area-inset-bottom))]">
+      <a
+        href="#booking"
+        class="pointer-events-auto mx-auto flex max-w-md items-center justify-center rounded-xl bg-blue-600 px-6 py-3.5 text-base font-semibold text-white shadow-lg shadow-blue-600/30 ring-1 ring-blue-700/40 transition-colors hover:bg-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+      >
+        Book your free assessment
+      </a>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var cta = document.getElementById('floating-cta');
+      if (!cta) return;
+      // Hide the floating CTA whenever any of these are on screen (so it never
+      // covers the calendar or footer, and stays out of the way up top).
+      var zones = ['booking', 'site-footer']
+        .map(function (id) { return document.getElementById(id); })
+        .filter(Boolean);
+      var onScreen = new Set();
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) onScreen.add(e.target);
+          else onScreen.delete(e.target);
+        });
+        update();
+      }, { threshold: 0 });
+      zones.forEach(function (z) { io.observe(z); });
+
+      function update() {
+        var scrolledPastHero = window.scrollY > window.innerHeight * 0.5;
+        cta.classList.toggle('is-visible', scrolledPastHero && onScreen.size === 0);
+      }
+      window.addEventListener('scroll', update, { passive: true });
+      window.addEventListener('resize', update, { passive: true });
+      update();
+    })();
+  </script>
 </body>
 </html>
